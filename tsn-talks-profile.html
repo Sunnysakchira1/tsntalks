@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TSN Talks — Media Kit 2025</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0C0906;
+      --bg2: #141008;
+      --bg3: #1C160E;
+      --bg4: #241D13;
+      --amber: #E8860A;
+      --amber-light: #F4A830;
+      --gold: #F0C060;
+      --cream: #F5EDD6;
+      --cream-dim: #C8B99A;
+      --muted: #7A6E60;
+      --border: rgba(232, 134, 10, 0.15);
+      --border-bright: rgba(232, 134, 10, 0.4);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Sora', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NOISE TEXTURE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(to bottom, rgba(12,9,6,0.95) 0%, transparent 100%);
+      backdrop-filter: blur(0px);
+      transition: backdrop-filter 0.3s, background 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(12,9,6,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--cream);
+    }
+    .nav-logo span { color: var(--amber); }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--cream-dim);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--amber); }
+    .nav-cta {
+      background: var(--amber);
+      color: var(--bg);
+      padding: 10px 24px;
+      border-radius: 2px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--amber-light); transform: translateY(-1px); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 40px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(232,134,10,0.12) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(232,134,10,0.05) 0%, transparent 60%);
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(232,134,10,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232,134,10,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(232,134,10,0.1);
+      border: 1px solid var(--border-bright);
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber-light);
+      margin-bottom: 36px;
+      position: relative;
+      animation: fadeInUp 0.8s ease both;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--amber);
+      animation: pulse 2s ease infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(56px, 9vw, 120px);
+      font-weight: 700;
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      color: var(--cream);
+      margin-bottom: 8px;
+      position: relative;
+      animation: fadeInUp 0.8s 0.1s ease both;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--amber);
+      display: block;
+    }
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--cream-dim);
+      margin-top: 24px;
+      margin-bottom: 48px;
+      max-width: 600px;
+      animation: fadeInUp 0.8s 0.2s ease both;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 56px;
+      position: relative;
+      animation: fadeInUp 0.8s 0.3s ease both;
+    }
+    .hero-stat {
+      text-align: center;
+    }
+    .hero-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--amber);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .hero-stat-divider {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, transparent, var(--border-bright), transparent);
+    }
+    .hero-platforms {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      animation: fadeInUp 0.8s 0.4s ease both;
+    }
+    .hero-platform-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-right: 4px;
+    }
+    .platform-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--cream-dim);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .platform-badge:hover { border-color: var(--border-bright); color: var(--cream); }
+    .platform-badge svg { width: 14px; height: 14px; fill: currentColor; }
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: fadeInUp 0.8s 0.6s ease both;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--amber), transparent);
+      animation: scrollLine 2s ease infinite;
+    }
+    @keyframes scrollLine {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 100px 0; }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 20px;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--amber);
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--cream);
+      margin-bottom: 16px;
+    }
+    .section-title em { font-style: italic; color: var(--amber); }
+    .section-desc {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--cream-dim);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    /* ─── ABOUT ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 60px;
+    }
+    .about-text p {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--cream-dim);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .about-text p strong { color: var(--cream); font-weight: 600; }
+    .about-quote {
+      margin-top: 40px;
+      padding: 28px 32px;
+      border-left: 3px solid var(--amber);
+      background: var(--bg3);
+    }
+    .about-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.5;
+      margin: 0 !important;
+    }
+    .about-founder {
+      position: relative;
+    }
+    .founder-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .founder-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--amber), var(--gold), transparent);
+    }
+    .founder-img-placeholder {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--amber) 0%, var(--bg4) 100%);
+      border: 2px solid var(--border-bright);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--bg);
+      margin-bottom: 28px;
+    }
+    .founder-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+    .founder-title {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 20px;
+    }
+    .founder-bio {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--cream-dim);
+      line-height: 1.75;
+    }
+    .tsn-logo-display {
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .tsn-logo-icon {
+      background: var(--amber);
+      color: var(--bg);
+      font-family: 'Sora', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 6px 12px;
+      border-radius: 2px;
+      line-height: 1.2;
+    }
+    .tsn-logo-text {
+      font-size: 14px;
+      color: var(--cream-dim);
+    }
+    .tsn-logo-text strong { color: var(--cream); }
+
+    /* ─── STATS ─── */
+    .stats-section {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stats-header {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      align-items: start;
+      margin-bottom: 72px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 60px;
+    }
+    .stat-card {
+      background: var(--bg3);
+      padding: 48px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .stat-card:hover { background: var(--bg4); }
+    .stat-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--amber), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .stat-card:hover::after { transform: scaleX(1); }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      font-weight: 700;
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .stat-num span {
+      font-size: 32px;
+      color: var(--gold);
+    }
+    .stat-label {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+    .stat-desc {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 60px;
+    }
+    .audience-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 36px;
+    }
+    .audience-card-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 24px;
+    }
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .bar-label {
+      font-size: 13px;
+      color: var(--cream-dim);
+      width: 180px;
+      flex-shrink: 0;
+    }
+    .bar-track {
+      flex: 1;
+      height: 4px;
+      background: var(--bg4);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: linear-gradient(to right, var(--amber), var(--gold));
+      border-radius: 2px;
+      transform-origin: left;
+      animation: barGrow 1.2s ease both;
+    }
+    @keyframes barGrow {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+    .bar-pct {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--cream);
+      width: 42px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* ─── GUESTS ─── */
+    .guests-section {}
+    .guests-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 60px;
+    }
+    .season-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 10px 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+    }
+    .season-badge span { color: var(--amber); }
+    .guests-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+    .guest-card {
+      background: var(--bg3);
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s, transform 0.3s;
+      cursor: default;
+    }
+    .guest-card:hover {
+      background: var(--bg4);
+      transform: translateY(-4px);
+    }
+    .guest-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, var(--amber), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .guest-card:hover::before { opacity: 1; }
+    .guest-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: rgba(232,134,10,0.12);
+      line-height: 1;
+      margin-bottom: 20px;
+      transition: color 0.3s;
+    }
+    .guest-card:hover .guest-number { color: rgba(232,134,10,0.25); }
+    .guest-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .guest-role {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--amber-light);
+      line-height: 1.5;
+    }
+
+    /* ─── SPONSORSHIP ─── */
+    .sponsorship-section {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+    }
+    .sponsor-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 60px;
+    }
+    .sponsor-option {
+      background: var(--bg3);
+      padding: 44px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .sponsor-option:hover { background: var(--bg4); }
+    .sponsor-option.featured {
+      background: rgba(232, 134, 10, 0.07);
+      border: 1px solid var(--border-bright);
+    }
+    .sponsor-option.featured:hover { background: rgba(232, 134, 10, 0.11); }
+    .sponsor-option-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      font-weight: 700;
+      color: rgba(232,134,10,0.15);
+      line-height: 1;
+      position: absolute;
+      top: 24px;
+      right: 32px;
+    }
+    .sponsor-option-tag {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--bg);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      margin-bottom: 16px;
+    }
+    .sponsor-option-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .sponsor-option-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--cream-dim);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .sponsor-features {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+    .sponsor-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--cream-dim);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .sponsor-features li::before {
+      content: '→';
+      color: var(--amber);
+      font-size: 12px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .sponsor-price {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .sponsor-price-from {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .sponsor-price-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--amber);
+    }
+    .sponsor-price-period {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ─── PRICING TABLE ─── */
+    .pricing-section {}
+    .pricing-tabs {
+      display: flex;
+      gap: 2px;
+      margin-top: 48px;
+      margin-bottom: 48px;
+    }
+    .pricing-tab {
+      flex: 1;
+      padding: 16px;
+      background: var(--bg3);
+      text-align: center;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+    .pricing-tab.active {
+      background: var(--bg4);
+      color: var(--amber);
+      border-color: var(--border-bright);
+    }
+    .pricing-tab:hover:not(.active) { background: var(--bg4); color: var(--cream-dim); }
+    .pricing-panel { display: none; }
+    .pricing-panel.active { display: block; }
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .pricing-table thead tr {
+      background: var(--bg3);
+    }
+    .pricing-table th {
+      padding: 16px 24px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .pricing-table td {
+      padding: 20px 24px;
+      font-size: 15px;
+      color: var(--cream-dim);
+      border-bottom: 1px solid var(--border);
+    }
+    .pricing-table tr:hover td { background: var(--bg3); }
+    .pricing-table .td-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--amber);
+    }
+    .pricing-table .td-savings {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold);
+      background: rgba(240,192,96,0.1);
+      padding: 3px 8px;
+      border-radius: 2px;
+    }
+    .pricing-table .td-best {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--amber);
+      padding: 3px 8px;
+      border-radius: 2px;
+    }
+
+    /* ─── BUNDLES ─── */
+    .bundles-section {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+    }
+    .bundles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 60px;
+    }
+    .bundle-card {
+      background: var(--bg3);
+      padding: 44px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .bundle-card:hover { transform: translateY(-4px); background: var(--bg4); }
+    .bundle-card.popular {
+      background: rgba(232, 134, 10, 0.07);
+      border: 1px solid var(--border-bright);
+    }
+    .bundle-card.popular:hover { background: rgba(232,134,10,0.11); }
+    .bundle-popular-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--amber);
+      color: var(--bg);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+    }
+    .bundle-name {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 12px;
+    }
+    .bundle-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 6px;
+      line-height: 1.15;
+    }
+    .bundle-duration {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .bundle-features {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+    .bundle-features li {
+      display: flex;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--cream-dim);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .bundle-features li::before {
+      content: '✓';
+      color: var(--amber);
+      font-size: 12px;
+      flex-shrink: 0;
+      font-weight: 700;
+    }
+    .bundle-pricing {
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .bundle-price-was {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+    .bundle-price-now {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .bundle-reach {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(232,134,10,0.1);
+      border: 1px solid var(--border-bright);
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--amber-light);
+      border-radius: 100px;
+    }
+
+    /* ─── SPONSORS WALL ─── */
+    .sponsors-section {}
+    .sponsors-logos {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 2px;
+      margin-top: 48px;
+    }
+    .sponsor-logo-card {
+      background: var(--bg3);
+      padding: 36px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .sponsor-logo-card:hover { background: var(--bg4); }
+    .sponsor-logo-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream-dim);
+      text-align: center;
+      line-height: 1.3;
+      transition: color 0.2s;
+    }
+    .sponsor-logo-card:hover .sponsor-logo-name { color: var(--amber-light); }
+
+    /* ─── WHY TSN ─── */
+    .why-section {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+      margin-top: 60px;
+    }
+    .why-card {
+      background: var(--bg3);
+      padding: 44px 36px;
+      transition: background 0.3s;
+    }
+    .why-card:hover { background: var(--bg4); }
+    .why-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(232,134,10,0.12);
+      border: 1px solid var(--border-bright);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 28px;
+    }
+    .why-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+    .why-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--cream-dim);
+      line-height: 1.75;
+    }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      padding: 120px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(232,134,10,0.08) 0%, transparent 70%);
+    }
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 6vw, 80px);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.05;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .cta-title em { font-style: italic; color: var(--amber); }
+    .cta-desc {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--cream-dim);
+      max-width: 500px;
+      margin: 0 auto 52px;
+      line-height: 1.7;
+      position: relative;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      position: relative;
+    }
+    .btn-primary {
+      background: var(--amber);
+      color: var(--bg);
+      padding: 18px 48px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--amber-light); transform: translateY(-2px); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--cream);
+      padding: 18px 48px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      border: 1px solid var(--border-bright);
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--amber); color: var(--amber); transform: translateY(-2px); }
+    .cta-contact {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      margin-top: 64px;
+      padding-top: 48px;
+      border-top: 1px solid var(--border);
+      position: relative;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+    .contact-info { text-align: left; }
+    .contact-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .contact-value {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--cream-dim);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 40px 60px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--cream-dim);
+    }
+    .footer-logo span { color: var(--amber); }
+    .footer-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      nav { padding: 20px 32px; }
+      .nav-links { display: none; }
+      .container { padding: 0 32px; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .stats-header { grid-template-columns: 1fr; gap: 32px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .guests-grid { grid-template-columns: repeat(2, 1fr); }
+      .sponsor-options { grid-template-columns: 1fr; }
+      .bundles-grid { grid-template-columns: 1fr; }
+      .sponsors-logos { grid-template-columns: repeat(3, 1fr); }
+      .why-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-logo">TSN <span>Talks</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#audience">Audience</a></li>
+      <li><a href="#guests">Guests</a></li>
+      <li><a href="#sponsorship">Sponsorship</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Partner With Us</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-eyebrow">Season 2 · Now Partnering</div>
+    <h1 class="hero-title">
+      TSN<br>
+      <em>Talks</em>
+    </h1>
+    <p class="hero-subtitle">Where Influence Meets Impact — Thailand's premier Indian voices series</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">1.2M</div>
+        <div class="hero-stat-label">Monthly Views</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">50K+</div>
+        <div class="hero-stat-label">Followers</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">86%</div>
+        <div class="hero-stat-label">Organic Reach</div>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">150K</div>
+        <div class="hero-stat-label">Views Per Reel</div>
+      </div>
+    </div>
+    <div class="hero-platforms">
+      <span class="hero-platform-label">Watch on</span>
+      <a href="https://www.facebook.com/ThaiSikhNews" target="_blank" class="platform-badge">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </a>
+      <a href="https://www.youtube.com/@TSNTalksTH" target="_blank" class="platform-badge">
+        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        YouTube
+      </a>
+      <a href="https://www.tiktok.com/@tsntalks.th" target="_blank" class="platform-badge">
+        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        TikTok
+      </a>
+      <a href="https://www.instagram.com/tsntalks" target="_blank" class="platform-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        Instagram
+      </a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">About the Show</div>
+        <h2 class="section-title">Spotlighting <em>the voices</em><br>that shape Thailand</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal reveal-delay-1">
+          <p>TSN Talks is <strong>Thailand's premier Indian voices interview series</strong> — a bold, exclusive platform spotlighting the entrepreneurs, community leaders, diplomats, and changemakers driving the Thai-Indian story forward.</p>
+          <p>Streamed live and on-demand across <strong>Facebook, YouTube, TikTok, and Instagram</strong>, every episode reaches a highly engaged, culturally connected audience that no other platform in Thailand can access.</p>
+          <p>Presented by <strong>Thai Sikh News</strong> — the largest Indian-Thai Facebook community in Thailand with over 50,000 followers and 1.2 million monthly views.</p>
+          <div class="about-quote">
+            <p>"Bringing the spotlight back — one story at a time."</p>
+          </div>
+        </div>
+        <div class="about-founder reveal reveal-delay-2">
+          <div class="founder-card">
+            <div class="founder-img-placeholder">P</div>
+            <div class="founder-name">Mr. Prasert Sakchiraphong</div>
+            <div class="founder-title">Founder, TSN · Community Media Pioneer</div>
+            <p class="founder-bio">Founder of Thai Sikh News — Thailand's largest Indian-Thai Facebook news platform. A community media pioneer who built one of the most trusted voices in the Thai-Indian community from the ground up.</p>
+            <div class="tsn-logo-display">
+              <div class="tsn-logo-icon">TSN<br>NEWS</div>
+              <div class="tsn-logo-text"><strong>Thai Sikh News</strong><br>Thailand's #1 Indian-Thai Media Platform</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section" id="audience">
+    <div class="container">
+      <div class="stats-header">
+        <div class="reveal">
+          <div class="section-label">Audience & Reach</div>
+          <h2 class="section-title">Numbers that <em>matter</em></h2>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <p class="section-desc">A highly engaged, community-driven audience concentrated in Bangkok — with strong reach across India and the Indian diaspora in SEA and worldwide.</p>
+        </div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card reveal">
+          <div class="stat-num">1.2M<span>+</span></div>
+          <div class="stat-label">Monthly Views</div>
+          <div class="stat-desc">Across Facebook & Instagram combined in a single 28-day period</div>
+        </div>
+        <div class="stat-card reveal reveal-delay-1">
+          <div class="stat-num">86<span>%</span></div>
+          <div class="stat-label">Organic Reach</div>
+          <div class="stat-desc">Authentic audience, not just paid reach — community-driven growth</div>
+        </div>
+        <div class="stat-card reveal reveal-delay-2">
+          <div class="stat-num">150K</div>
+          <div class="stat-label">Views Per Reel</div>
+          <div class="stat-desc">High-performing reels regularly hit 50K–150K views per post</div>
+        </div>
+        <div class="stat-card reveal reveal-delay-3">
+          <div class="stat-num">66<span>%</span></div>
+          <div class="stat-label">Thailand Based</div>
+          <div class="stat-desc">36% concentrated in Bangkok — your most relevant market</div>
+        </div>
+        <div class="stat-card reveal reveal-delay-1">
+          <div class="stat-num">62<span>%</span></div>
+          <div class="stat-label">Aged 18–34</div>
+          <div class="stat-desc">Socially active, lifestyle-driven, prime purchasing power</div>
+        </div>
+        <div class="stat-card reveal reveal-delay-2">
+          <div class="stat-num">33<span>%</span></div>
+          <div class="stat-label">Non-Followers</div>
+          <div class="stat-desc">Every campaign reaches fresh, new viewers beyond our base</div>
+        </div>
+      </div>
+
+      <div class="audience-grid" style="margin-top: 48px;">
+        <div class="audience-card reveal">
+          <div class="audience-card-title">Audience by Location</div>
+          <div class="bar-row">
+            <span class="bar-label">Bangkok, Thailand</span>
+            <div class="bar-track"><div class="bar-fill" style="width:61%"></div></div>
+            <span class="bar-pct">61%</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Delhi, India</span>
+            <div class="bar-track"><div class="bar-fill" style="width:14.6%"></div></div>
+            <span class="bar-pct">14.6%</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Pattaya, Thailand</span>
+            <div class="bar-track"><div class="bar-fill" style="width:3.9%"></div></div>
+            <span class="bar-pct">3.9%</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Mumbai, India</span>
+            <div class="bar-track"><div class="bar-fill" style="width:3.6%"></div></div>
+            <span class="bar-pct">3.6%</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">Kolkata, India</span>
+            <div class="bar-track"><div class="bar-fill" style="width:3%"></div></div>
+            <span class="bar-pct">3%</span>
+          </div>
+        </div>
+        <div class="audience-card reveal reveal-delay-1">
+          <div class="audience-card-title">Audience by Age Group</div>
+          <div class="bar-row">
+            <span class="bar-label">25–34 years</span>
+            <div class="bar-track"><div class="bar-fill" style="width:29.5%"></div></div>
+            <span class="bar-pct">29.5%</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">35–44 years</span>
+            <div class="bar-track"><div class="bar-fill" style="width:30.7%"></div></div>
+            <span class="bar-pct">30.7%</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">45–54 years</span>
+            <div class="bar-track"><div class="bar-fill" style="width:17.5%"></div></div>
+            <span class="bar-pct">17.5%</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">55–64 years</span>
+            <div class="bar-track"><div class="bar-fill" style="width:10.3%"></div></div>
+            <span class="bar-pct">10.3%</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">18–24 years</span>
+            <div class="bar-track"><div class="bar-fill" style="width:4.5%"></div></div>
+            <span class="bar-pct">4.5%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GUESTS -->
+  <section class="guests-section" id="guests">
+    <div class="container">
+      <div class="guests-intro reveal">
+        <div>
+          <div class="section-label">The Power Line-Up</div>
+          <h2 class="section-title">Season 1 <em>Guests</em></h2>
+        </div>
+        <div class="season-badge">
+          <span>Season 1</span> · 8 Episodes
+        </div>
+      </div>
+      <div class="guests-grid">
+        <div class="guest-card reveal">
+          <div class="guest-number">01</div>
+          <div class="guest-name">Nikorn Sachdev</div>
+          <div class="guest-role">Advisor to the Minister of Tourism &amp; Sports, Thailand</div>
+        </div>
+        <div class="guest-card reveal reveal-delay-1">
+          <div class="guest-number">02</div>
+          <div class="guest-name">Dhammandeep Singh Khanijaun</div>
+          <div class="guest-role">Honorary Consul to the Commonwealth of the Bahamas</div>
+        </div>
+        <div class="guest-card reveal reveal-delay-2">
+          <div class="guest-number">03</div>
+          <div class="guest-name">Rahm Khurana</div>
+          <div class="guest-role">Entrepreneur &amp; Community Leader</div>
+        </div>
+        <div class="guest-card reveal reveal-delay-3">
+          <div class="guest-number">04</div>
+          <div class="guest-name">Pinder Madan</div>
+          <div class="guest-role">President, Siri Guru Singh Sabha</div>
+        </div>
+        <div class="guest-card reveal">
+          <div class="guest-number">05</div>
+          <div class="guest-name">Darin Singhguruvar</div>
+          <div class="guest-role">Motivational Speaker, Counsellor &amp; Therapist</div>
+        </div>
+        <div class="guest-card reveal reveal-delay-1">
+          <div class="guest-number">06</div>
+          <div class="guest-name">Kirti Khanijow</div>
+          <div class="guest-role">Creative Entrepreneur</div>
+        </div>
+        <div class="guest-card reveal reveal-delay-2">
+          <div class="guest-number">07</div>
+          <div class="guest-name">Davinder Singh (Tony)</div>
+          <div class="guest-role">Business Leader &amp; Community Voice</div>
+        </div>
+        <div class="guest-card reveal reveal-delay-3" style="background: rgba(232,134,10,0.05); border: 1px dashed var(--border-bright);">
+          <div class="guest-number" style="color: rgba(232,134,10,0.3);">S2</div>
+          <div class="guest-name" style="color: var(--amber);">Your Guest?</div>
+          <div class="guest-role">Season 2 slots now open for sponsored guest features</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPONSORSHIP OPTIONS -->
+  <section class="sponsorship-section" id="sponsorship">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Sponsorship Options</div>
+        <h2 class="section-title">Five ways to <em>partner</em></h2>
+        <p class="section-desc">From subtle brand integration to full episode ownership — choose the format that fits your brand and budget.</p>
+      </div>
+      <div class="sponsor-options">
+        <div class="sponsor-option featured reveal">
+          <div class="sponsor-option-num">01</div>
+          <div class="sponsor-option-tag">Most Visible</div>
+          <div class="sponsor-option-title">"Brought to You By" + On-Screen Branding</div>
+          <p class="sponsor-option-desc">Maximum visibility. Your logo featured on-screen throughout the full episode, lower-third banners, and a branded end card.</p>
+          <ul class="sponsor-features">
+            <li>Logo on-screen during full episode</li>
+            <li>Lower-third banners at key moments</li>
+            <li>Dedicated 3–5 sec branded end card</li>
+            <li>Logo in thumbnail &amp; video description</li>
+          </ul>
+          <div class="sponsor-price">
+            <span class="sponsor-price-from">From</span>
+            <span class="sponsor-price-num">฿25,000</span>
+            <span class="sponsor-price-period">/ episode</span>
+          </div>
+        </div>
+        <div class="sponsor-option reveal reveal-delay-1">
+          <div class="sponsor-option-num">02</div>
+          <div class="sponsor-option-title">Content Integration &amp; Product Placement</div>
+          <p class="sponsor-option-desc">Natural, authentic product placement within the studio setup and dedicated branded segments that don't feel like ads.</p>
+          <ul class="sponsor-features">
+            <li>On-set product / logo placement</li>
+            <li>Branded experience segments</li>
+            <li>Guest gifting acknowledged on-air</li>
+          </ul>
+          <div class="sponsor-price">
+            <span class="sponsor-price-from">From</span>
+            <span class="sponsor-price-num">฿20,000</span>
+            <span class="sponsor-price-period">/ episode</span>
+          </div>
+        </div>
+        <div class="sponsor-option reveal">
+          <div class="sponsor-option-num">03</div>
+          <div class="sponsor-option-title">"Brought to You By" Verbal Mentions</div>
+          <p class="sponsor-option-desc">Cost-effective entry point. Pre-roll, mid-roll, and post-roll host-read mentions with logo in thumbnail and description.</p>
+          <ul class="sponsor-features">
+            <li>Pre, mid &amp; post-roll host mentions</li>
+            <li>Logo in thumbnail &amp; video overlay</li>
+            <li>Description links included</li>
+          </ul>
+          <div class="sponsor-price">
+            <span class="sponsor-price-from">From</span>
+            <span class="sponsor-price-num">฿15,000</span>
+            <span class="sponsor-price-period">/ episode</span>
+          </div>
+        </div>
+        <div class="sponsor-option reveal reveal-delay-1">
+          <div class="sponsor-option-num">04</div>
+          <div class="sponsor-option-title">Signature Segment Sponsorship ★</div>
+          <p class="sponsor-option-desc">A recurring branded segment named after your brand — asked to every guest, every episode. Consistent, memorable, impossible to ignore.</p>
+          <ul class="sponsor-features">
+            <li>"The [Brand] Segment" on-screen branding</li>
+            <li>3 signature questions every episode</li>
+            <li>Minimum 1-month commitment</li>
+            <li>Clip collaboration for social media</li>
+          </ul>
+          <div class="sponsor-price">
+            <span class="sponsor-price-from">From</span>
+            <span class="sponsor-price-num">฿70,000</span>
+            <span class="sponsor-price-period">/ month</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Option 5 full width -->
+      <div class="sponsor-option reveal" style="margin-top: 2px; grid-column: 1 / -1; background: var(--bg3); padding: 44px 40px; position: relative; overflow: hidden;">
+        <div class="sponsor-option-num">05</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; align-items: center;">
+          <div style="grid-column: 1 / 2;">
+            <div class="sponsor-option-tag">Thought Leadership</div>
+            <div class="sponsor-option-title">Guest Feature Episode</div>
+            <p class="sponsor-option-desc">Your business leader interviewed as the guest. A dedicated episode yielding highly reusable content for your own marketing.</p>
+          </div>
+          <div style="background: var(--bg4); padding: 32px; border: 1px solid var(--border);">
+            <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px;">Basic</div>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 700; color: var(--cream); margin-bottom: 16px;">฿20,000</div>
+            <ul class="sponsor-features">
+              <li>30-minute interview</li>
+              <li>Standard editing</li>
+              <li>Published on all platforms</li>
+              <li>2 social media clips</li>
+            </ul>
+          </div>
+          <div style="background: rgba(232,134,10,0.07); padding: 32px; border: 1px solid var(--border-bright);">
+            <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber); margin-bottom: 16px;">Standard ★ Recommended</div>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 700; color: var(--amber); margin-bottom: 16px;">฿45,000</div>
+            <ul class="sponsor-features">
+              <li>45-minute professional interview</li>
+              <li>Professional editing + B-roll</li>
+              <li>All platforms + custom thumbnail</li>
+              <li>5 social media clips (TikTok, Reels)</li>
+              <li>Sponsor receives 1080p video files</li>
+              <li>Option for Live Episode at your venue</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Pricing Tiers</div>
+        <h2 class="section-title">Transparent <em>pricing</em><br>with real savings</h2>
+        <p class="section-desc">Longer commitments unlock deeper discounts. All options include cross-platform promotion across Facebook, Instagram, TikTok, and YouTube.</p>
+      </div>
+
+      <div class="pricing-tabs reveal">
+        <div class="pricing-tab active" onclick="switchTab('opt1', this)">Option 1 — Full On-Screen</div>
+        <div class="pricing-tab" onclick="switchTab('opt2', this)">Option 2 — Product Placement</div>
+        <div class="pricing-tab" onclick="switchTab('opt3', this)">Option 3 — Verbal Mentions</div>
+        <div class="pricing-tab" onclick="switchTab('opt4', this)">Option 4 — Signature Segment</div>
+      </div>
+
+      <div id="opt1" class="pricing-panel active reveal">
+        <table class="pricing-table">
+          <thead><tr><th>Duration</th><th>Episodes</th><th>Total Price</th><th>Per-Episode Rate</th><th>Savings</th></tr></thead>
+          <tbody>
+            <tr><td>Single Episode</td><td>1</td><td class="td-price">฿25,000</td><td>฿25,000</td><td>—</td></tr>
+            <tr><td>1 Month</td><td>4</td><td class="td-price">฿80,000</td><td>฿20,000</td><td><span class="td-savings">Save 20%</span></td></tr>
+            <tr><td>2 Months</td><td>8</td><td class="td-price">฿144,000</td><td>฿18,000</td><td><span class="td-savings">Save 28%</span></td></tr>
+            <tr><td>3 Months</td><td>12</td><td class="td-price">฿198,000</td><td>฿16,500</td><td><span class="td-savings">Save 34%</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="opt2" class="pricing-panel reveal">
+        <table class="pricing-table">
+          <thead><tr><th>Duration</th><th>Episodes</th><th>Total Price</th><th>Per-Episode Rate</th><th>Savings</th></tr></thead>
+          <tbody>
+            <tr><td>Single Episode</td><td>1</td><td class="td-price">฿20,000</td><td>฿20,000</td><td>—</td></tr>
+            <tr><td>1 Month</td><td>4</td><td class="td-price">฿60,000</td><td>฿15,000</td><td><span class="td-savings">Save 25%</span></td></tr>
+            <tr><td>2 Months</td><td>8</td><td class="td-price">฿104,000</td><td>฿13,000</td><td><span class="td-savings">Save 35%</span></td></tr>
+            <tr><td>3 Months</td><td>12</td><td class="td-price">฿138,000</td><td>฿11,500</td><td><span class="td-savings">Save 42.5%</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="opt3" class="pricing-panel reveal">
+        <table class="pricing-table">
+          <thead><tr><th>Duration</th><th>Episodes</th><th>Total Price</th><th>Per-Episode Rate</th><th>Savings</th></tr></thead>
+          <tbody>
+            <tr><td>Single Episode</td><td>1</td><td class="td-price">฿15,000</td><td>฿15,000</td><td>—</td></tr>
+            <tr><td>1 Month</td><td>4</td><td class="td-price">฿50,000</td><td>฿12,500</td><td><span class="td-savings">Save 17%</span></td></tr>
+            <tr><td>2 Months</td><td>8</td><td class="td-price">฿88,000</td><td>฿11,000</td><td><span class="td-savings">Save 27%</span></td></tr>
+            <tr><td>3 Months</td><td>12</td><td class="td-price">฿120,000</td><td>฿10,000</td><td><span class="td-savings">Save 33%</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="opt4" class="pricing-panel reveal">
+        <table class="pricing-table">
+          <thead><tr><th>Duration</th><th>Episodes</th><th>Total Price</th><th>Per-Episode Rate</th><th>Savings</th></tr></thead>
+          <tbody>
+            <tr><td>1 Month</td><td>4</td><td class="td-price">฿70,000</td><td>฿17,500</td><td>—</td></tr>
+            <tr><td>2 Months</td><td>8</td><td class="td-price">฿120,000</td><td>฿15,000</td><td><span class="td-savings">Save 14%</span></td></tr>
+            <tr><td>3 Months</td><td>12</td><td class="td-price">฿162,000</td><td>฿13,500</td><td><span class="td-savings">Save 23%</span></td></tr>
+            <tr><td>6 Months</td><td>24</td><td class="td-price">฿288,000</td><td>฿12,000</td><td><span class="td-savings">Save 31%</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUNDLES -->
+  <section class="bundles-section" id="bundles">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Bundle Packages</div>
+        <h2 class="section-title">Maximum impact,<br><em>curated packages</em></h2>
+        <p class="section-desc">Combine TSN Talks sponsorships with Thai Sikh News advertising for guaranteed reach milestones.</p>
+      </div>
+      <div class="bundles-grid">
+        <div class="bundle-card reveal">
+          <div class="bundle-name">Starter</div>
+          <div class="bundle-title">Brand Intro Package</div>
+          <div class="bundle-duration">1 Week · Thai Sikh News + TSN Talks</div>
+          <ul class="bundle-features">
+            <li>1 episode TSN Talks sponsorship</li>
+            <li>Promo banner across all social media</li>
+            <li>3–5 posts on Facebook, Instagram, TikTok</li>
+            <li>฿5,000 advertising budget included</li>
+          </ul>
+          <div class="bundle-pricing">
+            <div class="bundle-price-was">Regular: ฿40,000</div>
+            <div class="bundle-price-now">฿29,000</div>
+            <div class="bundle-reach">📊 Guaranteed 100,000 Reach</div>
+          </div>
+        </div>
+        <div class="bundle-card reveal reveal-delay-1">
+          <div class="bundle-name">Growth</div>
+          <div class="bundle-title">Visibility Boost</div>
+          <div class="bundle-duration">2 Weeks · Thai Sikh News + TSN Talks</div>
+          <ul class="bundle-features">
+            <li>2 episodes TSN Talks (verbal + visual branding)</li>
+            <li>Promo banner across all social media content</li>
+            <li>5–7 posts on Facebook, Instagram, TikTok</li>
+            <li>฿7,000 advertising budget included</li>
+          </ul>
+          <div class="bundle-pricing">
+            <div class="bundle-price-was">Regular: ฿55,000</div>
+            <div class="bundle-price-now">฿39,000</div>
+            <div class="bundle-reach">📊 Guaranteed 200,000 Reach</div>
+          </div>
+        </div>
+        <div class="bundle-card reveal reveal-delay-2">
+          <div class="bundle-name">Bundle A</div>
+          <div class="bundle-title">Brand Visibility Package</div>
+          <div class="bundle-duration">1 Month</div>
+          <ul class="bundle-features">
+            <li>4 x Full Episode Sponsorship + On-Screen Branding</li>
+            <li>Promo banner across all social media</li>
+            <li>10 posts on Facebook, Instagram, TikTok</li>
+            <li>฿10,000 advertising budget included</li>
+          </ul>
+          <div class="bundle-pricing">
+            <div class="bundle-price-was">Regular: ฿105,000</div>
+            <div class="bundle-price-now">฿69,000</div>
+            <div class="bundle-reach">📊 Guaranteed 350,000 Reach</div>
+          </div>
+        </div>
+        <div class="bundle-card popular reveal">
+          <div class="bundle-popular-badge">Most Popular</div>
+          <div class="bundle-name">Bundle B</div>
+          <div class="bundle-title">Premium Package</div>
+          <div class="bundle-duration">1 Month</div>
+          <ul class="bundle-features">
+            <li>4 x Full Episode Sponsorship + On-Screen Branding</li>
+            <li>1 x Guest Feature Episode for your brand</li>
+            <li>4 x Product Placement episodes</li>
+            <li>12 social media posts on Thai Sikh News</li>
+            <li>฿15,000 advertising budget included</li>
+          </ul>
+          <div class="bundle-pricing">
+            <div class="bundle-price-was">Regular: ฿150,000</div>
+            <div class="bundle-price-now">฿109,000</div>
+            <div class="bundle-reach">📊 Guaranteed 500,000 Reach</div>
+          </div>
+        </div>
+        <div class="bundle-card reveal reveal-delay-1" style="grid-column: span 2;">
+          <div class="bundle-name">Bundle C · Flagship</div>
+          <div class="bundle-title">Signature Sponsor Package</div>
+          <div class="bundle-duration">2 Months</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+            <ul class="bundle-features">
+              <li>8 x Full Episode Sponsorship + On-Screen Branding</li>
+              <li>1 x Guest Feature Episode for your brand</li>
+              <li>8 x Signature Segment Sponsorship (your branded segment)</li>
+              <li>20+ social media posts on Thai Sikh News</li>
+              <li>฿25,000 advertising budget included</li>
+            </ul>
+            <div class="bundle-pricing" style="border-top: none; padding-top: 0;">
+              <div class="bundle-price-was">Regular: ฿355,000</div>
+              <div class="bundle-price-now" style="font-size: 52px;">฿185,000</div>
+              <div style="font-size: 14px; color: var(--gold); margin-bottom: 16px; font-weight: 600;">You save ฿170,000</div>
+              <div class="bundle-reach">📊 Guaranteed 1,000,000 Reach</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEASON 1 SPONSORS -->
+  <section id="sponsors">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Season 1 Sponsors</div>
+        <h2 class="section-title">Brands that <em>trusted</em> us</h2>
+      </div>
+      <div class="sponsors-logos">
+        <div class="sponsor-logo-card reveal"><div class="sponsor-logo-name">Bharat Choice</div></div>
+        <div class="sponsor-logo-card reveal reveal-delay-1"><div class="sponsor-logo-name">Punjab Sweets Shop</div></div>
+        <div class="sponsor-logo-card reveal reveal-delay-2"><div class="sponsor-logo-name">Locully Advertising &amp; Media</div></div>
+        <div class="sponsor-logo-card reveal reveal-delay-3"><div class="sponsor-logo-name">Singh Production</div></div>
+        <div class="sponsor-logo-card reveal reveal-delay-1"><div class="sponsor-logo-name">Baboonuts</div></div>
+        <div class="sponsor-logo-card reveal reveal-delay-2"><div class="sponsor-logo-name">Badshah Club Bangkok</div></div>
+        <div class="sponsor-logo-card reveal" style="background: rgba(232,134,10,0.04); border: 1px dashed var(--border-bright);">
+          <div class="sponsor-logo-name" style="color: var(--amber-light); font-size: 14px;">Your Brand<br>Season 2</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY TSN -->
+  <section class="why-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Why Partner With Us</div>
+        <h2 class="section-title">Not just ad space.<br><em>Community trust.</em></h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-icon">🎯</div>
+          <div class="why-title">Brand Authenticity & Trust</div>
+          <p class="why-desc">Your brand benefits from genuine endorsement by trusted community hosts. Viewers are more likely to recall and act on recommendations from voices they respect.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon">♾️</div>
+          <div class="why-title">Lasting Visibility</div>
+          <p class="why-desc">Episodes live indefinitely across YouTube, Facebook, Instagram, and Spotify. Your sponsorship generates impressions and engagement long after the initial broadcast.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon">🤝</div>
+          <div class="why-title">Real Community Access</div>
+          <p class="why-desc">Gain unparalleled access to a tight-knit Bangkok and Indian community — with bonus reach across Indian communities in SEA and worldwide. No other platform offers this.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <div class="cta-bg"></div>
+    <div class="container" style="position: relative;">
+      <h2 class="cta-title reveal">Ready to reach<br><em>the right audience?</em></h2>
+      <p class="cta-desc reveal reveal-delay-1">Get your brand in front of 50,000+ engaged Thai-Indian followers. Season 2 sponsorship slots are filling fast.</p>
+      <div class="cta-buttons reveal reveal-delay-2">
+        <a href="mailto:thaisikhnews@gmail.com" class="btn-primary">Become a Partner</a>
+        <a href="mailto:thaisikhnews@gmail.com" class="btn-secondary">Request Media Kit</a>
+      </div>
+      <div class="cta-contact reveal reveal-delay-3">
+        <a href="https://www.facebook.com/ThaiSikhNews" target="_blank" class="contact-item" style="text-decoration: none;">
+          <div class="contact-icon">📘</div>
+          <div class="contact-info">
+            <div class="contact-label">Facebook</div>
+            <div class="contact-value">Thai Sikh News</div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/tsntalks" target="_blank" class="contact-item" style="text-decoration: none;">
+          <div class="contact-icon">📸</div>
+          <div class="contact-info">
+            <div class="contact-label">Instagram</div>
+            <div class="contact-value">@tsntalks</div>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/@TSNTalksTH" target="_blank" class="contact-item" style="text-decoration: none;">
+          <div class="contact-icon">▶️</div>
+          <div class="contact-info">
+            <div class="contact-label">YouTube</div>
+            <div class="contact-value">@TSNTalksTH</div>
+          </div>
+        </a>
+        <a href="https://www.tiktok.com/@tsntalks.th" target="_blank" class="contact-item" style="text-decoration: none;">
+          <div class="contact-icon">🎵</div>
+          <div class="contact-info">
+            <div class="contact-label">TikTok</div>
+            <div class="contact-value">@tsntalks.th</div>
+          </div>
+        </a>
+        <a href="mailto:thaisikhnews@gmail.com" class="contact-item" style="text-decoration: none;">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-info">
+            <div class="contact-label">Email</div>
+            <div class="contact-value">thaisikhnews@gmail.com</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">TSN <span>Talks</span> · Media Kit 2025</div>
+    <div class="footer-note">Presented by Thai Sikh News · Thailand's Premier Indian Voices Series</div>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // Pricing tabs
+    function switchTab(panelId, tabEl) {
+      document.querySelectorAll('.pricing-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.pricing-panel').forEach(p => p.classList.remove('active'));
+      tabEl.classList.add('active');
+      document.getElementById(panelId).classList.add('active');
+    }
+
+    // Animated number counters
+    function animateCounter(el) {
+      const target = parseFloat(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1500;
+      const start = performance.now();
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = target * eased;
+        el.textContent = (Number.isInteger(target) ? Math.floor(value) : value.toFixed(1)) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !e.target.dataset.animated) {
+          e.target.dataset.animated = true;
+          animateCounter(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+  </script>
+</body>
+</html>
