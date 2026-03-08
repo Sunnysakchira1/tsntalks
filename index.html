@@ -123,7 +123,7 @@
     .pull-quote p { font-family: 'Playfair Display', serif; font-size: 20px; font-style: italic; color: var(--cream); line-height: 1.5; margin: 0 !important; }
     .founder-panel { background: var(--bg3); border: 1px solid var(--border); padding: 44px; position: relative; overflow: hidden; }
     .founder-panel::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--saffron), var(--gold2), transparent); }
-    .founder-initial { width: 96px; height: 96px; border-radius: 50%; background: linear-gradient(135deg, var(--saffron) 0%, var(--bg4) 100%); border: 2px solid var(--border-hi); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 24px; }
+    .founder-photo { width: 96px; height: 96px; border-radius: 50%; border: 2px solid var(--border-hi); object-fit: cover; object-position: top center; margin-bottom: 24px; display: block; }
     .founder-name { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--cream); margin-bottom: 4px; }
     .founder-role { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--saffron); margin-bottom: 18px; }
     .founder-bio { font-size: 14px; font-weight: 300; color: var(--cream-dim); line-height: 1.8; }
@@ -134,10 +134,11 @@
 
     /* ── EPISODE GRID WITH THUMBNAILS ── */
     .episodes-section {}
-    .season-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
+    .season-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 12px; }
     .season-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--cream); }
     .season-title em { font-style: italic; color: var(--gold2); }
     .season-count { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .season-logo { height: 40px; width: auto; opacity: 0.9; }
 
     .ep-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; margin-bottom: 60px; }
 
@@ -277,8 +278,31 @@
       footer { flex-direction: column; gap: 12px; text-align: center; }
     }
     @media (max-width: 640px) {
-      .ep-grid { grid-template-columns: 1fr; }
+      nav { padding: 16px 20px; }
+      .container { padding: 0 20px; }
+      section { padding: 64px 0; }
+      .hero { padding: 100px 20px 72px; }
+      .ep-grid { grid-template-columns: repeat(2, 1fr); }
+      .numbers-grid { grid-template-columns: repeat(2, 1fr); }
+      .num-val { font-size: 38px; }
+      .h-stat { padding: 18px 20px; flex: 1 1 50%; }
+      .hero-stats-row { width: 100%; }
+      .bar-label { width: auto; flex: 1; min-width: 0; font-size: 12px; }
+      .bar-row { flex-wrap: nowrap; gap: 8px; }
+      .bar-pct { width: 36px; }
+      .viral-card { padding: 18px; gap: 14px; }
+      .viral-thumb { width: 72px; height: 40px; }
+      .viral-views { font-size: 22px; }
       .cta-btns { flex-direction: column; align-items: center; }
+      .contact-strip { gap: 24px; }
+      .founder-panel { padding: 28px 24px; }
+      footer { padding: 28px 20px; }
+    }
+    @media (max-width: 420px) {
+      .ep-grid { grid-template-columns: 1fr; }
+      .numbers-grid { grid-template-columns: 1fr; }
+      .h-stat { flex: 1 1 100%; }
+      .platform-pill { font-size: 11px; padding: 7px 14px; }
     }
   </style>
 </head>
@@ -346,12 +370,12 @@
         </div>
         <div class="reveal d2">
           <div class="founder-panel">
-            <div class="founder-initial">P</div>
+            <img src="assets/prasert.jpg" alt="Mr. Prasert Sakchiraphong" class="founder-photo">
             <div class="founder-name">Mr. Prasert Sakchiraphong</div>
             <div class="founder-role">Founder, TSN · Community Media Pioneer</div>
             <p class="founder-bio">Founder of Thai Sikh News — Thailand's largest Indian-Thai Facebook news platform. Built one of the most trusted community media voices in Thailand from the ground up, now channelling that trust into long-form storytelling through TSN Talks.</p>
             <div class="founder-badge">
-              <span class="tsn-chip">TSN NEWS</span>
+              <img src="assets/tsn-logo.jpg" alt="Thai Sikh News" style="height:40px;width:40px;border-radius:50%;object-fit:cover;flex-shrink:0;">
               <div class="tsn-chip-label"><strong>Thai Sikh News</strong><br>Thailand's #1 Indian-Thai Media</div>
             </div>
           </div>
@@ -371,7 +395,10 @@
       <!-- Season 2 -->
       <div style="margin-top: 56px;">
         <div class="season-header reveal">
-          <div class="season-title">Season <em>Two</em></div>
+          <div style="display:flex;align-items:center;gap:18px;">
+            <div class="season-title">Season <em>Two</em></div>
+            <img src="assets/tsn-s2-logo.jpg" alt="TSN Talks Season 2" class="season-logo">
+          </div>
           <div class="season-count">2025 · In Progress</div>
         </div>
         <div class="ep-grid">

@@ -110,7 +110,28 @@
       .option-block { grid-template-columns: 1fr; gap: 24px; }
       .opt-num { font-size: 64px; }
       .bundles-grid { grid-template-columns: 1fr; }
+      .bundle-card[style*="span 2"] { grid-column: span 1 !important; }
       footer { flex-direction: column; gap: 12px; text-align: center; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .container { padding: 0 20px; }
+      section { padding: 64px 0; }
+      .options-section { padding-top: 96px; }
+      .opt-num { font-size: 48px; }
+      .opt-title { font-size: 22px; }
+      .opt-price { font-size: 30px; }
+      /* Option 5 inner 2-col */
+      .option-block .opt-body > div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+      .bundle-card { padding: 28px 24px; }
+      /* Bundle C inner 2-col */
+      .bundle-card > div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+      .bundle-now { font-size: 32px !important; }
+      footer { padding: 28px 20px; }
     }
   </style>
 </head>
