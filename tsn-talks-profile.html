@@ -24,23 +24,13 @@
       --muted:     #7A6050;
       --border:    rgba(232, 98, 26, 0.12);
       --border-hi: rgba(232, 98, 26, 0.35);
-      --gold-border: rgba(200, 144, 30, 0.25);
     }
 
     html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--cream);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      overflow-x: hidden;
-    }
+    body { background: var(--bg); color: var(--cream); font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
 
-    /* grain overlay */
     body::after {
-      content: '';
-      position: fixed; inset: 0;
-      pointer-events: none; z-index: 900;
-      opacity: 0.03;
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 900; opacity: 0.03;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       background-size: 256px;
     }
@@ -52,434 +42,227 @@
       display: flex; align-items: center; justify-content: space-between;
       transition: background 0.4s, backdrop-filter 0.4s;
     }
-    nav.stuck {
-      background: rgba(13,7,6,0.94);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px; font-weight: 700; letter-spacing: 0.03em;
-      color: var(--cream); text-decoration: none;
-    }
+    nav.stuck { background: rgba(13,7,6,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-brand { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--cream); text-decoration: none; }
     .nav-brand em { font-style: italic; color: var(--gold2); }
-    .nav-right { display: flex; align-items: center; gap: 24px; }
-    .nav-link {
-      font-size: 13px; font-weight: 500; letter-spacing: 0.06em;
-      color: var(--cream-dim); text-decoration: none;
-      transition: color 0.2s;
-    }
+    .nav-right { display: flex; align-items: center; gap: 28px; }
+    .nav-link { font-size: 13px; font-weight: 500; letter-spacing: 0.05em; color: var(--cream-dim); text-decoration: none; transition: color 0.2s; }
     .nav-link:hover { color: var(--saffron2); }
-    .nav-btn {
-      background: var(--saffron);
-      color: #fff; font-size: 12px; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      text-decoration: none; padding: 10px 22px;
-      border-radius: 2px; transition: background 0.2s;
-    }
+    .nav-btn { background: var(--saffron); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; padding: 10px 22px; border-radius: 2px; transition: background 0.2s; }
     .nav-btn:hover { background: var(--saffron2); }
 
     /* ── HERO ── */
     .hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-      padding: 120px 40px 100px;
-      position: relative; overflow: hidden;
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      padding: 120px 40px 100px; position: relative; overflow: hidden;
     }
-    .hero-orb {
-      position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none;
-    }
-    .orb-1 {
-      width: 700px; height: 500px;
-      top: -100px; left: 50%; transform: translateX(-50%);
-      background: radial-gradient(ellipse, rgba(232,98,26,0.18) 0%, transparent 70%);
-    }
-    .orb-2 {
-      width: 400px; height: 400px;
-      bottom: 0; right: 0;
-      background: radial-gradient(ellipse, rgba(200,144,30,0.1) 0%, transparent 70%);
-    }
-    .orb-3 {
-      width: 300px; height: 300px;
-      bottom: 100px; left: -50px;
-      background: radial-gradient(ellipse, rgba(232,98,26,0.07) 0%, transparent 70%);
-    }
+    .hero-orb { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
+    .orb-1 { width: 800px; height: 500px; top: -80px; left: 50%; transform: translateX(-50%); background: radial-gradient(ellipse, rgba(232,98,26,0.18) 0%, transparent 70%); }
+    .orb-2 { width: 400px; height: 400px; bottom: 0; right: 0; background: radial-gradient(ellipse, rgba(200,144,30,0.1) 0%, transparent 70%); }
+    .orb-3 { width: 300px; height: 300px; bottom: 100px; left: -50px; background: radial-gradient(ellipse, rgba(232,98,26,0.07) 0%, transparent 70%); }
 
     .hero-badge {
       display: inline-flex; align-items: center; gap: 10px;
-      background: rgba(232,98,26,0.1);
-      border: 1px solid var(--border-hi);
+      background: rgba(232,98,26,0.1); border: 1px solid var(--border-hi);
       padding: 8px 20px; border-radius: 100px;
-      font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--saffron2);
-      margin-bottom: 40px;
-      animation: fadeUp 0.9s ease both;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--saffron2);
+      margin-bottom: 40px; animation: fadeUp 0.9s ease both;
     }
-    .hero-badge-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--saffron);
-      animation: blink 2.2s ease infinite;
-    }
+    .badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--saffron); animation: blink 2.2s ease infinite; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-    .hero-title {
+    h1.hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(72px, 11vw, 148px);
-      font-weight: 900; line-height: 0.88;
-      letter-spacing: -0.03em; color: var(--cream);
+      font-size: clamp(72px, 11vw, 148px); font-weight: 900;
+      line-height: 0.88; letter-spacing: -0.03em; color: var(--cream);
       animation: fadeUp 0.9s 0.08s ease both;
     }
-    .hero-title em {
-      display: block; font-style: italic;
-      color: transparent;
-      -webkit-text-stroke: 1.5px var(--gold2);
-    }
-    .hero-divider {
-      width: 1px; height: 64px;
-      background: linear-gradient(to bottom, var(--saffron), transparent);
-      margin: 36px auto;
-      animation: fadeUp 0.9s 0.16s ease both;
-    }
-    .hero-tagline {
-      font-size: clamp(16px, 2vw, 20px); font-weight: 300;
-      color: var(--cream-dim); max-width: 520px;
-      line-height: 1.7; letter-spacing: 0.01em;
-      animation: fadeUp 0.9s 0.22s ease both;
-    }
-    .hero-platforms {
-      display: flex; gap: 14px; justify-content: center;
-      margin-top: 40px;
-      animation: fadeUp 0.9s 0.3s ease both;
-    }
+    h1.hero-title em { display: block; font-style: italic; color: transparent; -webkit-text-stroke: 1.5px var(--gold2); }
+
+    .hero-divider { width: 1px; height: 64px; background: linear-gradient(to bottom, var(--saffron), transparent); margin: 36px auto; animation: fadeUp 0.9s 0.16s ease both; }
+
+    .hero-tagline { font-size: clamp(16px, 2vw, 20px); font-weight: 300; color: var(--cream-dim); max-width: 520px; line-height: 1.7; animation: fadeUp 0.9s 0.22s ease both; }
+
+    .hero-platforms { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 40px; animation: fadeUp 0.9s 0.3s ease both; }
     .platform-pill {
       display: flex; align-items: center; gap: 8px;
-      background: var(--bg3); border: 1px solid var(--border);
-      padding: 9px 18px; border-radius: 100px;
-      font-size: 12px; font-weight: 600; color: var(--cream-dim);
-      text-decoration: none; letter-spacing: 0.04em;
+      background: var(--bg3); border: 1px solid var(--border); padding: 9px 18px; border-radius: 100px;
+      font-size: 12px; font-weight: 600; color: var(--cream-dim); text-decoration: none; letter-spacing: 0.04em;
       transition: border-color 0.2s, color 0.2s, background 0.2s;
     }
-    .platform-pill:hover {
-      border-color: var(--border-hi); color: var(--cream);
-      background: var(--bg4);
-    }
+    .platform-pill:hover { border-color: var(--border-hi); color: var(--cream); background: var(--bg4); }
     .platform-pill svg { width: 13px; height: 13px; fill: currentColor; flex-shrink: 0; }
 
-    .hero-stats-row {
-      display: flex; gap: 0; margin-top: 72px;
-      border: 1px solid var(--border);
-      animation: fadeUp 0.9s 0.38s ease both;
-    }
-    .h-stat {
-      padding: 24px 48px; text-align: center;
-      border-right: 1px solid var(--border);
-      background: rgba(255,255,255,0.015);
-    }
+    .hero-stats-row { display: flex; margin-top: 72px; border: 1px solid var(--border); animation: fadeUp 0.9s 0.38s ease both; }
+    .h-stat { padding: 24px 44px; text-align: center; border-right: 1px solid var(--border); background: rgba(255,255,255,0.015); }
     .h-stat:last-child { border-right: none; }
-    .h-stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 34px; font-weight: 700; color: var(--gold2); line-height: 1;
-    }
-    .h-stat-label {
-      font-size: 10px; font-weight: 600; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--muted); margin-top: 6px;
-    }
+    .h-stat-num { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; color: var(--gold2); line-height: 1; }
+    .h-stat-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
 
     /* ── SHARED ── */
-    .container { max-width: 1160px; margin: 0 auto; padding: 0 64px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 64px; }
     section { padding: 100px 0; }
-
-    .tag {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--saffron);
-      margin-bottom: 18px;
-    }
+    .tag { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--saffron); margin-bottom: 18px; }
     .tag::before { content: ''; width: 28px; height: 1px; background: var(--saffron); }
-
-    h2.display {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(38px, 4.5vw, 62px);
-      font-weight: 700; line-height: 1.05; letter-spacing: -0.02em;
-      color: var(--cream);
-    }
+    h2.display { font-family: 'Playfair Display', serif; font-size: clamp(38px, 4.5vw, 62px); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; color: var(--cream); }
     h2.display em { font-style: italic; color: var(--gold2); }
-
-    .reveal {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .reveal.on { opacity: 1; transform: none; }
-    .d1 { transition-delay: 0.1s; }
-    .d2 { transition-delay: 0.2s; }
-    .d3 { transition-delay: 0.3s; }
+    .d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s}
 
     /* ── ABOUT ── */
     .about-section { background: var(--bg2); border-top: 1px solid var(--border); }
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 80px; align-items: start; margin-top: 56px;
-    }
-    .about-copy p {
-      font-size: 17px; font-weight: 300; color: var(--cream-dim);
-      line-height: 1.85; margin-bottom: 20px;
-    }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 56px; }
+    .about-copy p { font-size: 17px; font-weight: 300; color: var(--cream-dim); line-height: 1.85; margin-bottom: 20px; }
     .about-copy p strong { color: var(--cream); font-weight: 600; }
     .about-copy p em { color: var(--saffron2); font-style: normal; font-weight: 500; }
-    .pull-quote {
-      margin-top: 36px;
-      padding: 24px 28px;
-      border-left: 3px solid var(--saffron);
-      background: var(--bg3);
-    }
-    .pull-quote p {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px; font-style: italic;
-      color: var(--cream); line-height: 1.5;
-      margin: 0 !important;
-    }
-    .founder-panel {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      padding: 44px;
-      position: relative; overflow: hidden;
-    }
-    .founder-panel::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--saffron), var(--gold2), transparent);
-    }
-    .founder-initial {
-      width: 96px; height: 96px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--saffron) 0%, var(--bg4) 100%);
-      border: 2px solid var(--border-hi);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 36px; font-weight: 700; color: #fff;
-      margin-bottom: 24px;
-    }
-    .founder-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px; font-weight: 700; color: var(--cream);
-      margin-bottom: 4px;
-    }
-    .founder-role {
-      font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--saffron);
-      margin-bottom: 18px;
-    }
-    .founder-bio {
-      font-size: 14px; font-weight: 300;
-      color: var(--cream-dim); line-height: 1.8;
-    }
-    .founder-badge {
-      display: inline-flex; align-items: center; gap: 10px;
-      margin-top: 28px; padding-top: 24px;
-      border-top: 1px solid var(--border);
-    }
-    .tsn-chip {
-      background: var(--saffron); color: #fff;
-      font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
-      padding: 5px 10px;
-    }
+    .pull-quote { margin-top: 36px; padding: 24px 28px; border-left: 3px solid var(--saffron); background: var(--bg3); }
+    .pull-quote p { font-family: 'Playfair Display', serif; font-size: 20px; font-style: italic; color: var(--cream); line-height: 1.5; margin: 0 !important; }
+    .founder-panel { background: var(--bg3); border: 1px solid var(--border); padding: 44px; position: relative; overflow: hidden; }
+    .founder-panel::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--saffron), var(--gold2), transparent); }
+    .founder-initial { width: 96px; height: 96px; border-radius: 50%; background: linear-gradient(135deg, var(--saffron) 0%, var(--bg4) 100%); border: 2px solid var(--border-hi); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 24px; }
+    .founder-name { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--cream); margin-bottom: 4px; }
+    .founder-role { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--saffron); margin-bottom: 18px; }
+    .founder-bio { font-size: 14px; font-weight: 300; color: var(--cream-dim); line-height: 1.8; }
+    .founder-badge { display: flex; align-items: center; gap: 12px; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .tsn-chip { background: var(--saffron); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; padding: 5px 10px; flex-shrink: 0; }
     .tsn-chip-label { font-size: 13px; color: var(--cream-dim); }
     .tsn-chip-label strong { color: var(--cream); }
 
-    /* ── EPISODES ── */
+    /* ── EPISODE GRID WITH THUMBNAILS ── */
     .episodes-section {}
-    .season-header {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 28px; padding-bottom: 20px;
-      border-bottom: 1px solid var(--border);
-    }
-    .season-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px; font-weight: 700; color: var(--cream);
-    }
+    .season-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
+    .season-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--cream); }
     .season-title em { font-style: italic; color: var(--gold2); }
-    .season-count {
-      font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--muted);
+    .season-count { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+
+    .ep-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; margin-bottom: 60px; }
+
+    .ep-card {
+      background: var(--bg3);
+      position: relative; overflow: hidden;
+      cursor: pointer; text-decoration: none; display: block;
+      transition: transform 0.3s;
+    }
+    .ep-card:hover { transform: translateY(-4px); z-index: 2; }
+
+    /* thumbnail */
+    .ep-thumb {
+      position: relative; width: 100%; aspect-ratio: 16/9;
+      overflow: hidden; background: var(--bg4);
+    }
+    .ep-thumb img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.4s, filter 0.4s;
+      filter: brightness(0.85) saturate(1.1);
+    }
+    .ep-card:hover .ep-thumb img { transform: scale(1.05); filter: brightness(1) saturate(1.2); }
+
+    /* play overlay on hover */
+    .ep-play {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(13,7,6,0.5);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .ep-card:hover .ep-play { opacity: 1; }
+    .ep-play-btn {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--saffron); display: flex; align-items: center; justify-content: center;
+    }
+    .ep-play-btn svg { width: 20px; height: 20px; fill: #fff; margin-left: 3px; }
+
+    /* views badge on thumbnail */
+    .ep-views-badge {
+      position: absolute; bottom: 8px; left: 8px;
+      background: rgba(232,98,26,0.92); color: #fff;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+      padding: 3px 8px; border-radius: 2px;
+    }
+    /* ep number badge */
+    .ep-num-badge {
+      position: absolute; top: 8px; left: 8px;
+      background: rgba(13,7,6,0.75); backdrop-filter: blur(4px);
+      color: var(--cream-dim); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.08em; padding: 3px 8px;
+    }
+    /* season 2 "new" badge */
+    .ep-new-badge {
+      position: absolute; top: 8px; right: 8px;
+      background: var(--gold); color: var(--bg);
+      font-size: 9px; font-weight: 800; letter-spacing: 0.12em;
+      text-transform: uppercase; padding: 3px 8px;
     }
 
-    .ep-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 2px; margin-bottom: 64px;
-    }
-    .ep-card {
-      background: var(--bg3); padding: 28px 24px;
-      position: relative; overflow: hidden;
-      cursor: default;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .ep-card:hover { background: var(--bg4); transform: translateY(-3px); }
+    .ep-info { padding: 14px 16px 18px; }
+    .ep-guest { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--cream); line-height: 1.25; margin-bottom: 5px; }
+    .ep-role { font-size: 11px; font-weight: 400; color: var(--gold2); line-height: 1.45; }
+
+    /* bottom bar */
     .ep-card::after {
       content: '';
       position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
       background: linear-gradient(90deg, var(--saffron), transparent);
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.3s;
+      transform: scaleX(0); transform-origin: left; transition: transform 0.35s;
     }
     .ep-card:hover::after { transform: scaleX(1); }
-    .ep-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px; font-weight: 900;
-      color: rgba(232,98,26,0.12); line-height: 1;
-      margin-bottom: 16px;
-      transition: color 0.3s;
-    }
-    .ep-card:hover .ep-num { color: rgba(232,98,26,0.25); }
-    .ep-season-tag {
-      display: inline-block; font-size: 9px; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--saffron); margin-bottom: 8px;
-    }
-    .ep-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 16px; font-weight: 700;
-      color: var(--cream); line-height: 1.3; margin-bottom: 6px;
-    }
-    .ep-role {
-      font-size: 12px; font-weight: 400;
-      color: var(--gold2); line-height: 1.5;
-    }
-    .ep-views {
-      display: inline-flex; align-items: center; gap: 6px;
-      margin-top: 12px; font-size: 11px; font-weight: 600;
-      color: var(--saffron2);
-      background: rgba(232,98,26,0.1);
-      padding: 4px 10px; border-radius: 100px;
-    }
 
-    /* ── CHANNEL NUMBERS ── */
-    .numbers-section {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .numbers-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
-      margin-top: 56px;
-    }
-    .num-card {
-      background: var(--bg3); padding: 44px 36px;
-      position: relative; overflow: hidden;
-      transition: background 0.3s;
-    }
+    /* ── NUMBERS ── */
+    .numbers-section { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .numbers-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 52px; }
+    .num-card { background: var(--bg3); padding: 44px 36px; transition: background 0.3s; }
     .num-card:hover { background: var(--bg4); }
-    .num-val {
-      font-family: 'Playfair Display', serif;
-      font-size: 52px; font-weight: 700; color: var(--saffron); line-height: 1;
-      margin-bottom: 10px;
-    }
+    .num-val { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 700; color: var(--saffron); line-height: 1; margin-bottom: 10px; }
     .num-val sup { font-size: 28px; color: var(--gold2); }
     .num-label { font-size: 15px; font-weight: 600; color: var(--cream); margin-bottom: 6px; }
     .num-desc { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.6; }
-    .viral-row {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
-      margin-top: 2px;
-    }
-    .viral-card {
-      background: rgba(232,98,26,0.06);
-      border: 1px solid var(--border-hi);
-      padding: 28px 28px;
-    }
-    .viral-views {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px; font-weight: 700; color: var(--gold2); line-height: 1;
-    }
-    .viral-ep { font-size: 13px; color: var(--cream); font-weight: 600; margin: 6px 0 4px; }
-    .viral-guest { font-size: 12px; color: var(--saffron2); }
+
+    .viral-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 2px; }
+    .viral-card { background: rgba(232,98,26,0.06); border: 1px solid var(--border-hi); padding: 28px; display: flex; gap: 20px; align-items: center; text-decoration: none; transition: background 0.2s; }
+    .viral-card:hover { background: rgba(232,98,26,0.1); }
+    .viral-thumb { width: 100px; height: 56px; border-radius: 2px; overflow: hidden; flex-shrink: 0; }
+    .viral-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .viral-views { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--gold2); line-height: 1; }
+    .viral-ep { font-size: 12px; color: var(--cream); font-weight: 600; margin: 4px 0 3px; }
+    .viral-guest { font-size: 11px; color: var(--saffron2); }
 
     /* ── AUDIENCE ── */
-    .audience-section {}
-    .aud-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 56px; }
-    .aud-panel {
-      background: var(--bg3); padding: 40px;
-    }
-    .aud-panel-title {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--saffron);
-      margin-bottom: 28px;
-    }
+    .aud-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 52px; }
+    .aud-panel { background: var(--bg3); padding: 40px; }
+    .aud-panel-title { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--saffron); margin-bottom: 28px; }
     .bar-row { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
     .bar-label { font-size: 13px; color: var(--cream-dim); width: 190px; flex-shrink: 0; }
     .bar-track { flex: 1; height: 3px; background: var(--bg4); border-radius: 2px; }
-    .bar-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--saffron), var(--gold2));
-      border-radius: 2px;
-    }
+    .bar-fill { height: 100%; background: linear-gradient(90deg, var(--saffron), var(--gold2)); border-radius: 2px; }
     .bar-pct { font-size: 12px; font-weight: 600; color: var(--cream); width: 40px; text-align: right; flex-shrink: 0; }
 
     /* ── CTA ── */
-    .cta-section {
-      text-align: center; padding: 120px 0;
-      position: relative; overflow: hidden;
-    }
-    .cta-glow {
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(232,98,26,0.07) 0%, transparent 65%);
-    }
+    .cta-section { text-align: center; padding: 120px 0; position: relative; overflow: hidden; }
+    .cta-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(232,98,26,0.07) 0%, transparent 65%); }
     .cta-section h2 { position: relative; margin-bottom: 20px; }
-    .cta-desc {
-      font-size: 17px; font-weight: 300; color: var(--cream-dim);
-      max-width: 480px; margin: 0 auto 48px; line-height: 1.75;
-      position: relative;
-    }
+    .cta-desc { font-size: 17px; font-weight: 300; color: var(--cream-dim); max-width: 480px; margin: 0 auto 48px; line-height: 1.75; position: relative; }
     .cta-btns { display: flex; gap: 14px; justify-content: center; position: relative; }
-    .btn {
-      display: inline-block; text-decoration: none;
-      font-size: 13px; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; padding: 16px 44px;
-      transition: transform 0.2s, background 0.2s, border-color 0.2s, color 0.2s;
-    }
+    .btn { display: inline-block; text-decoration: none; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 16px 44px; transition: transform 0.2s, background 0.2s, border-color 0.2s, color 0.2s; }
     .btn:hover { transform: translateY(-2px); }
     .btn-primary { background: var(--saffron); color: #fff; }
     .btn-primary:hover { background: var(--saffron2); }
-    .btn-outline {
-      background: transparent; color: var(--cream);
-      border: 1px solid var(--border-hi);
-    }
+    .btn-outline { background: transparent; color: var(--cream); border: 1px solid var(--border-hi); }
     .btn-outline:hover { border-color: var(--saffron); color: var(--saffron2); }
 
-    .contact-strip {
-      display: flex; justify-content: center; gap: 48px;
-      margin-top: 60px; padding-top: 48px;
-      border-top: 1px solid var(--border);
-      position: relative;
-    }
+    .contact-strip { display: flex; justify-content: center; gap: 44px; margin-top: 60px; padding-top: 48px; border-top: 1px solid var(--border); position: relative; flex-wrap: wrap; }
     .contact-item { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .contact-icon {
-      width: 38px; height: 38px; background: var(--bg3);
-      border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 15px; border-radius: 2px;
-    }
+    .contact-icon { width: 38px; height: 38px; background: var(--bg3); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 15px; }
     .contact-label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
     .contact-val { font-size: 13px; font-weight: 500; color: var(--cream-dim); }
 
-    /* ── FOOTER ── */
-    footer {
-      padding: 36px 64px;
-      border-top: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .footer-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px; font-weight: 700; color: var(--cream-dim);
-    }
+    footer { padding: 36px 64px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--cream-dim); }
     .footer-brand em { font-style: italic; color: var(--gold2); }
     .footer-note { font-size: 12px; color: var(--muted); }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       nav { padding: 20px 32px; }
       .nav-link { display: none; }
@@ -495,15 +278,12 @@
     }
     @media (max-width: 640px) {
       .ep-grid { grid-template-columns: 1fr; }
-      .hero-platforms { flex-wrap: wrap; }
       .cta-btns { flex-direction: column; align-items: center; }
-      .contact-strip { flex-direction: column; align-items: center; gap: 24px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav id="nav">
     <a href="#" class="nav-brand">TSN <em>Talks</em></a>
     <div class="nav-right">
@@ -518,24 +298,10 @@
     <div class="hero-orb orb-1"></div>
     <div class="hero-orb orb-2"></div>
     <div class="hero-orb orb-3"></div>
-
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>
-      Now in Season 2 &nbsp;·&nbsp; 93 Episodes &nbsp;·&nbsp; Thailand 🇹🇭
-    </div>
-
-    <h1 class="hero-title">
-      TSN<br>
-      <em>Talks</em>
-    </h1>
-
+    <div class="hero-badge"><span class="badge-dot"></span>Now in Season 2 &nbsp;·&nbsp; Thailand 🇹🇭🇮🇳</div>
+    <h1 class="hero-title">TSN<br><em>Talks</em></h1>
     <div class="hero-divider"></div>
-
-    <p class="hero-tagline">
-      Thailand's premier interview series spotlighting the entrepreneurs,
-      diplomats, and changemakers shaping the Thai-Indian story.
-    </p>
-
+    <p class="hero-tagline">Thailand's premier interview series spotlighting the entrepreneurs, diplomats, and changemakers shaping the Thai-Indian story.</p>
     <div class="hero-platforms">
       <a href="https://www.youtube.com/@TSNTalksTH" target="_blank" class="platform-pill">
         <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
@@ -554,10 +320,9 @@
         Facebook
       </a>
     </div>
-
     <div class="hero-stats-row">
-      <div class="h-stat"><div class="h-stat-num">988</div><div class="h-stat-label">YouTube Subscribers</div></div>
-      <div class="h-stat"><div class="h-stat-num">93</div><div class="h-stat-label">Total Videos</div></div>
+      <div class="h-stat"><div class="h-stat-num">26</div><div class="h-stat-label">Episodes Published</div></div>
+      <div class="h-stat"><div class="h-stat-num">24</div><div class="h-stat-label">Guests Interviewed</div></div>
       <div class="h-stat"><div class="h-stat-num">103K</div><div class="h-stat-label">Top Episode Views</div></div>
       <div class="h-stat"><div class="h-stat-num">50K+</div><div class="h-stat-label">Community Followers</div></div>
     </div>
@@ -600,7 +365,7 @@
     <div class="container">
       <div class="reveal">
         <div class="tag">The Guest List</div>
-        <h2 class="display">22+ episodes.<br><em>Every voice matters.</em></h2>
+        <h2 class="display">26 episodes.<br><em>24 voices.</em></h2>
       </div>
 
       <!-- Season 2 -->
@@ -610,27 +375,56 @@
           <div class="season-count">2025 · In Progress</div>
         </div>
         <div class="ep-grid">
-          <div class="ep-card reveal">
-            <div class="ep-num">S2·4</div>
-            <div class="ep-season-tag">Latest Episode</div>
-            <div class="ep-name">Gagan Ajmani</div>
-            <div class="ep-role">WOWS Global · Corporate, VC & Founder</div>
-          </div>
-          <div class="ep-card reveal d1">
-            <div class="ep-num">S2·3</div>
-            <div class="ep-name">Sukhdev Sethi</div>
-            <div class="ep-role">Closed $1.5M · Beat 6,000 in 151 Countries</div>
-          </div>
-          <div class="ep-card reveal d2">
-            <div class="ep-num">S2·2</div>
-            <div class="ep-name">Sunny Chawla</div>
-            <div class="ep-role">Sunnylogy · AI & Digital Strategy</div>
-          </div>
-          <div class="ep-card reveal d3">
-            <div class="ep-num">S2·1</div>
-            <div class="ep-name">Sunny Chawla</div>
-            <div class="ep-role">Sunnylogy · Building a Billion Dollar Startup with AI</div>
-          </div>
+
+          <a href="https://www.youtube.com/watch?v=Q_IY5BALpgY" target="_blank" class="ep-card reveal">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/Q_IY5BALpgY/hqdefault.jpg" alt="Gagan Ajmani" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">S2 · E4</div>
+              <div class="ep-new-badge">Latest</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Gagan Ajmani</div>
+              <div class="ep-role">WOWS Global · Corporate, VC & Founder</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=6Dnssyxg-8w" target="_blank" class="ep-card reveal d1">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/6Dnssyxg-8w/hqdefault.jpg" alt="Sukhdev Sethi" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">S2 · E3</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Sukhdev Sethi</div>
+              <div class="ep-role">Closed $1.5M · Beat 6,000 in 151 Countries</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=OwqzzlZ0PGw" target="_blank" class="ep-card reveal d2">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/OwqzzlZ0PGw/hqdefault.jpg" alt="Sunny Chawla" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">S2 · E2</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Sunny Chawla</div>
+              <div class="ep-role">Sunnylogy · How AI Can Secretly Manipulate You</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=J71XCFlxwts" target="_blank" class="ep-card reveal d3">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/J71XCFlxwts/hqdefault.jpg" alt="Sunny Chawla" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">S2 · E1</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Sunny Chawla</div>
+              <div class="ep-role">Sunnylogy · Building a Billion Dollar Startup with AI</div>
+            </div>
+          </a>
+
         </div>
       </div>
 
@@ -641,125 +435,280 @@
           <div class="season-count">2024–2025 · 22 Episodes</div>
         </div>
         <div class="ep-grid">
-          <div class="ep-card reveal">
-            <div class="ep-num">22</div>
-            <div class="ep-name">Nathapol Sirinarang</div>
-            <div class="ep-role">President, BNI The One Chapter</div>
-          </div>
-          <div class="ep-card reveal d1">
-            <div class="ep-num">21</div>
-            <div class="ep-name">Dr. Ravee Phol</div>
-            <div class="ep-role">Medical Leader & Community Figure</div>
-          </div>
-          <div class="ep-card reveal d2">
-            <div class="ep-num">20</div>
-            <div class="ep-name">Harprem Doowa</div>
-            <div class="ep-role">Founder & CEO, Eazy Digital</div>
-          </div>
-          <div class="ep-card reveal d3">
-            <div class="ep-num">19</div>
-            <div class="ep-name">Major Sukit Khurana</div>
-            <div class="ep-role">Military Leader & Community Voice</div>
-            <div class="ep-views">🔥 34K Views</div>
-          </div>
-          <div class="ep-card reveal">
-            <div class="ep-num">18</div>
-            <div class="ep-name">Dr. Nivit Kalra</div>
-            <div class="ep-role">Cardiologist & Co-founder, Prime Care Clinic</div>
-          </div>
-          <div class="ep-card reveal d1">
-            <div class="ep-num">17</div>
-            <div class="ep-name">Anchit Sachdev</div>
-            <div class="ep-role">Co-founder & MD, GetFresh</div>
-          </div>
-          <div class="ep-card reveal d2">
-            <div class="ep-num">16</div>
-            <div class="ep-name">Chuan Thakur & Preecha Champi</div>
-            <div class="ep-role">Diwali Special Episode</div>
-          </div>
-          <div class="ep-card reveal d3">
-            <div class="ep-num">15</div>
-            <div class="ep-name">Manish Sethi</div>
-            <div class="ep-role">Business Leader</div>
-          </div>
-          <div class="ep-card reveal">
-            <div class="ep-num">14</div>
-            <div class="ep-name">Mahima Natarajan</div>
-            <div class="ep-role">Co-Founder & CMO, Yindii</div>
-          </div>
-          <div class="ep-card reveal d1">
-            <div class="ep-num">13</div>
-            <div class="ep-name">Dr. Sunil Phol</div>
-            <div class="ep-role">Part 2 · Surgeon & Community Leader</div>
-            <div class="ep-views">🔥 70K Views</div>
-          </div>
-          <div class="ep-card reveal d2">
-            <div class="ep-num">12</div>
-            <div class="ep-name">Narin Khurana</div>
-            <div class="ep-role">CEO, SchoolBright</div>
-          </div>
-          <div class="ep-card reveal d3">
-            <div class="ep-num">11</div>
-            <div class="ep-name">Dr. Sunil Phol</div>
-            <div class="ep-role">Part 1 · Surgeon & Community Leader</div>
-            <div class="ep-views">🔥 103K Views</div>
-          </div>
-          <div class="ep-card reveal">
-            <div class="ep-num">10</div>
-            <div class="ep-name">Raju Vishwas</div>
-            <div class="ep-role">CEO, Rethink Labs</div>
-          </div>
-          <div class="ep-card reveal d1">
-            <div class="ep-num">09</div>
-            <div class="ep-name">Krishna Kamthorn</div>
-            <div class="ep-role">Business Leader</div>
-          </div>
-          <div class="ep-card reveal d2">
-            <div class="ep-num">08</div>
-            <div class="ep-name">Neena Sehgal</div>
-            <div class="ep-role">Entrepreneur & Community Leader</div>
-          </div>
-          <div class="ep-card reveal d3">
-            <div class="ep-num">07</div>
-            <div class="ep-name">Sajan Kumar</div>
-            <div class="ep-role">Singh Production</div>
-          </div>
-          <div class="ep-card reveal">
-            <div class="ep-num">06</div>
-            <div class="ep-name">India Pakdee</div>
-            <div class="ep-role">Creative Entrepreneur</div>
-          </div>
-          <div class="ep-card reveal d1">
-            <div class="ep-num">05</div>
-            <div class="ep-name">Mana Khanijou</div>
-            <div class="ep-role">Community & Business Leader</div>
-          </div>
-          <div class="ep-card reveal d2">
-            <div class="ep-num">04</div>
-            <div class="ep-name">Davinder Singh (Tony)</div>
-            <div class="ep-role">Business Leader & Community Voice</div>
-          </div>
-          <div class="ep-card reveal d3">
-            <div class="ep-num">03</div>
-            <div class="ep-name">Kirty Khanijou</div>
-            <div class="ep-role">Creative Entrepreneur</div>
-          </div>
-          <div class="ep-card reveal">
-            <div class="ep-num">02</div>
-            <div class="ep-name">Nikorn Sachdev</div>
-            <div class="ep-role">Advisor to the Minister of Tourism & Sports, Thailand</div>
-          </div>
-          <div class="ep-card reveal d1">
-            <div class="ep-num">01</div>
-            <div class="ep-name">Dhammandeep Singh Khanijaun</div>
-            <div class="ep-role">Honorary Consul to the Commonwealth of the Bahamas</div>
-          </div>
+
+          <a href="https://www.youtube.com/watch?v=Mv6jWK2EnYc" target="_blank" class="ep-card reveal">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/Mv6jWK2EnYc/hqdefault.jpg" alt="Nathapol Sirinarang" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 22</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Nathapol Sirinarang</div>
+              <div class="ep-role">President, BNI The One Chapter</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=4gBuXFNt5DY" target="_blank" class="ep-card reveal d1">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/4gBuXFNt5DY/hqdefault.jpg" alt="Dr Ravee Phol" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 21</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Dr. Ravee Phol</div>
+              <div class="ep-role">Medical Leader & Community Figure</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=6H9biyqCDZY" target="_blank" class="ep-card reveal d2">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/6H9biyqCDZY/hqdefault.jpg" alt="Harprem Doowa" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 20</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Harprem Doowa</div>
+              <div class="ep-role">Founder & CEO, Eazy Digital</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=lyyPtfjVnXQ" target="_blank" class="ep-card reveal d3">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/lyyPtfjVnXQ/hqdefault.jpg" alt="Major Sukit Khurana" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 19</div>
+              <div class="ep-views-badge">🔥 34K Views</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Major Sukit Khurana</div>
+              <div class="ep-role">Military Leader & Community Voice</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=YpGM5SEsSRg" target="_blank" class="ep-card reveal">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/YpGM5SEsSRg/hqdefault.jpg" alt="Dr Nivit Kalra" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 18</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Dr. Nivit Kalra</div>
+              <div class="ep-role">Cardiologist & Co-founder, Prime Care Clinic</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=bNHbXNSR1uc" target="_blank" class="ep-card reveal d1">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/bNHbXNSR1uc/hqdefault.jpg" alt="Anchit Sachdev" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 17</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Anchit Sachdev</div>
+              <div class="ep-role">Co-founder & MD, GetFresh</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=LpOf84axqEQ" target="_blank" class="ep-card reveal d2">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/LpOf84axqEQ/hqdefault.jpg" alt="Diwali Special" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 16</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Chuan Thakur & Preecha Champi</div>
+              <div class="ep-role">Diwali Special Episode</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=KPGopByI8r4" target="_blank" class="ep-card reveal d3">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/KPGopByI8r4/hqdefault.jpg" alt="Manish Sethi" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 15</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Manish Sethi</div>
+              <div class="ep-role">Business Leader</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=lZ9PvA5R7TQ" target="_blank" class="ep-card reveal">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/lZ9PvA5R7TQ/hqdefault.jpg" alt="Mahima Natarajan" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 14</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Mahima Natarajan</div>
+              <div class="ep-role">Co-Founder & CMO, Yindii</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=PpnI7_--PUg" target="_blank" class="ep-card reveal d1">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/PpnI7_--PUg/hqdefault.jpg" alt="Dr Sunil Phol Part 2" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 13</div>
+              <div class="ep-views-badge">🔥 70K Views</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Dr. Sunil Phol <span style="color:var(--muted);font-size:11px">Part 2</span></div>
+              <div class="ep-role">Surgeon & Community Leader</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=9AxuohprUbU" target="_blank" class="ep-card reveal d2">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/9AxuohprUbU/hqdefault.jpg" alt="Narin Khurana" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 12</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Narin Khurana</div>
+              <div class="ep-role">CEO, SchoolBright</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=YdxkrDzVDjQ" target="_blank" class="ep-card reveal d3">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/YdxkrDzVDjQ/hqdefault.jpg" alt="Dr Sunil Phol Part 1" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 11</div>
+              <div class="ep-views-badge">🔥 103K Views</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Dr. Sunil Phol <span style="color:var(--muted);font-size:11px">Part 1</span></div>
+              <div class="ep-role">Surgeon & Community Leader</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=vynsVCwQjqk" target="_blank" class="ep-card reveal">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/vynsVCwQjqk/hqdefault.jpg" alt="Raju Vishwas" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 10</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Raju Vishwas</div>
+              <div class="ep-role">CEO, Rethink Labs</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=jQBfoqCtxZ8" target="_blank" class="ep-card reveal d1">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/jQBfoqCtxZ8/hqdefault.jpg" alt="Krishna Kamthorn" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 09</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Krishna Kamthorn</div>
+              <div class="ep-role">Business Leader</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=MS36EM8jaOM" target="_blank" class="ep-card reveal d2">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/MS36EM8jaOM/hqdefault.jpg" alt="Neena Sehgal" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 08</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Neena Sehgal</div>
+              <div class="ep-role">Entrepreneur & Community Leader</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=KIvulJvZfZ8" target="_blank" class="ep-card reveal d3">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/KIvulJvZfZ8/hqdefault.jpg" alt="Sajan Kumar" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 07</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Sajan Kumar</div>
+              <div class="ep-role">Singh Production</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=En9wEJNj2u4" target="_blank" class="ep-card reveal">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/En9wEJNj2u4/hqdefault.jpg" alt="India Pakdee" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 06</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">India Pakdee</div>
+              <div class="ep-role">Creative Entrepreneur</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=1xpQ3bnKqqA" target="_blank" class="ep-card reveal d1">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/1xpQ3bnKqqA/hqdefault.jpg" alt="Mana Khanijou" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 05</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Mana Khanijou</div>
+              <div class="ep-role">Community & Business Leader</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=K6-2pMqEMM4" target="_blank" class="ep-card reveal d2">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/K6-2pMqEMM4/hqdefault.jpg" alt="Davinder Singh Tony" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 04</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Davinder Singh (Tony)</div>
+              <div class="ep-role">Business Leader & Community Voice</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=Gf4Bsu0bRaI" target="_blank" class="ep-card reveal d3">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/Gf4Bsu0bRaI/hqdefault.jpg" alt="Kirty Khanijou" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 03</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Kirty Khanijou</div>
+              <div class="ep-role">Creative Entrepreneur</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=tlWQLS5MrhI" target="_blank" class="ep-card reveal">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/tlWQLS5MrhI/hqdefault.jpg" alt="Nikorn Sachdev" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 02</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Nikorn Sachdev</div>
+              <div class="ep-role">Advisor to the Minister of Tourism & Sports, Thailand</div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=0qgsjhonhwc" target="_blank" class="ep-card reveal d1">
+            <div class="ep-thumb">
+              <img src="https://img.youtube.com/vi/0qgsjhonhwc/hqdefault.jpg" alt="Dhammandeep Singh Khanijaun" loading="lazy">
+              <div class="ep-play"><div class="ep-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div></div>
+              <div class="ep-num-badge">Ep 01</div>
+            </div>
+            <div class="ep-info">
+              <div class="ep-guest">Dhammandeep Singh Khanijaun</div>
+              <div class="ep-role">Honorary Consul to the Commonwealth of the Bahamas</div>
+            </div>
+          </a>
+
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CHANNEL NUMBERS -->
+  <!-- NUMBERS -->
   <section class="numbers-section" id="audience">
     <div class="container">
       <div class="reveal">
@@ -768,105 +717,74 @@
       </div>
       <div class="numbers-grid">
         <div class="num-card reveal">
-          <div class="num-val">988</div>
-          <div class="num-label">YouTube Subscribers</div>
-          <div class="num-desc">Organic, community-driven — no paid growth</div>
+          <div class="num-val">26</div>
+          <div class="num-label">Episodes Published</div>
+          <div class="num-desc">22 Season 1 + 4 Season 2 (in progress)</div>
         </div>
         <div class="num-card reveal d1">
+          <div class="num-val">24</div>
+          <div class="num-label">Guests Interviewed</div>
+          <div class="num-desc">Entrepreneurs, diplomats, doctors, and community leaders</div>
+        </div>
+        <div class="num-card reveal d2">
           <div class="num-val">50K<sup>+</sup></div>
           <div class="num-label">Community Followers</div>
           <div class="num-desc">Across Thai Sikh News social platforms</div>
         </div>
-        <div class="num-card reveal d2">
-          <div class="num-val">93</div>
-          <div class="num-label">Total Videos Published</div>
-          <div class="num-desc">Full episodes, shorts & bonus content</div>
-        </div>
         <div class="num-card reveal d3">
-          <div class="num-val">2<sup>+</sup></div>
-          <div class="num-label">Active Seasons</div>
-          <div class="num-desc">Season 2 currently airing in 2025</div>
+          <div class="num-val">86<sup>%</sup></div>
+          <div class="num-label">Organic Reach</div>
+          <div class="num-desc">Community-driven, not paid growth</div>
         </div>
       </div>
 
-      <div style="margin-top: 32px;" class="reveal">
-        <div class="tag" style="margin-bottom: 20px;">Viral Moments</div>
+      <!-- Viral Moments with thumbnails -->
+      <div style="margin-top: 48px;" class="reveal">
+        <div class="tag" style="margin-bottom: 20px;">Top Performing Episodes</div>
       </div>
       <div class="viral-row">
-        <div class="viral-card reveal">
-          <div class="viral-views">103K Views</div>
-          <div class="viral-ep">Episode 11</div>
-          <div class="viral-guest">Dr. Sunil Phol — Part 1</div>
-        </div>
-        <div class="viral-card reveal d1">
-          <div class="viral-views">70K Views</div>
-          <div class="viral-ep">Episode 13</div>
-          <div class="viral-guest">Dr. Sunil Phol — Part 2</div>
-        </div>
-        <div class="viral-card reveal d2">
-          <div class="viral-views">34K Views</div>
-          <div class="viral-ep">Episode 19</div>
-          <div class="viral-guest">Major Sukit Khurana</div>
-        </div>
+        <a href="https://www.youtube.com/watch?v=YdxkrDzVDjQ" target="_blank" class="viral-card reveal">
+          <div class="viral-thumb"><img src="https://img.youtube.com/vi/YdxkrDzVDjQ/hqdefault.jpg" alt="Dr Sunil"></div>
+          <div>
+            <div class="viral-views">103K</div>
+            <div class="viral-ep">Episode 11 · Part 1</div>
+            <div class="viral-guest">Dr. Sunil Phol</div>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=PpnI7_--PUg" target="_blank" class="viral-card reveal d1">
+          <div class="viral-thumb"><img src="https://img.youtube.com/vi/PpnI7_--PUg/hqdefault.jpg" alt="Dr Sunil Part 2"></div>
+          <div>
+            <div class="viral-views">70K</div>
+            <div class="viral-ep">Episode 13 · Part 2</div>
+            <div class="viral-guest">Dr. Sunil Phol</div>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=lyyPtfjVnXQ" target="_blank" class="viral-card reveal d2">
+          <div class="viral-thumb"><img src="https://img.youtube.com/vi/lyyPtfjVnXQ/hqdefault.jpg" alt="Major Sukit"></div>
+          <div>
+            <div class="viral-views">34K</div>
+            <div class="viral-ep">Episode 19</div>
+            <div class="viral-guest">Major Sukit Khurana</div>
+          </div>
+        </a>
       </div>
 
-      <!-- Audience breakdown -->
       <div class="aud-grid" style="margin-top: 48px;">
         <div class="aud-panel reveal">
           <div class="aud-panel-title">Audience by Location</div>
-          <div class="bar-row">
-            <span class="bar-label">Bangkok, Thailand</span>
-            <div class="bar-track"><div class="bar-fill" style="width:61%"></div></div>
-            <span class="bar-pct">61%</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-label">Delhi, India</span>
-            <div class="bar-track"><div class="bar-fill" style="width:14.6%"></div></div>
-            <span class="bar-pct">14.6%</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-label">Pattaya, Thailand</span>
-            <div class="bar-track"><div class="bar-fill" style="width:3.9%"></div></div>
-            <span class="bar-pct">3.9%</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-label">Mumbai, India</span>
-            <div class="bar-track"><div class="bar-fill" style="width:3.6%"></div></div>
-            <span class="bar-pct">3.6%</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-label">Canada / USA / Other</span>
-            <div class="bar-track"><div class="bar-fill" style="width:9%"></div></div>
-            <span class="bar-pct">9%</span>
-          </div>
+          <div class="bar-row"><span class="bar-label">Bangkok, Thailand</span><div class="bar-track"><div class="bar-fill" style="width:61%"></div></div><span class="bar-pct">61%</span></div>
+          <div class="bar-row"><span class="bar-label">Delhi, India</span><div class="bar-track"><div class="bar-fill" style="width:14.6%"></div></div><span class="bar-pct">14.6%</span></div>
+          <div class="bar-row"><span class="bar-label">Pattaya, Thailand</span><div class="bar-track"><div class="bar-fill" style="width:3.9%"></div></div><span class="bar-pct">3.9%</span></div>
+          <div class="bar-row"><span class="bar-label">Mumbai, India</span><div class="bar-track"><div class="bar-fill" style="width:3.6%"></div></div><span class="bar-pct">3.6%</span></div>
+          <div class="bar-row"><span class="bar-label">Canada / USA / Other</span><div class="bar-track"><div class="bar-fill" style="width:9%"></div></div><span class="bar-pct">9%</span></div>
         </div>
         <div class="aud-panel reveal d1">
           <div class="aud-panel-title">Audience by Age</div>
-          <div class="bar-row">
-            <span class="bar-label">35–44 years</span>
-            <div class="bar-track"><div class="bar-fill" style="width:30.7%"></div></div>
-            <span class="bar-pct">30.7%</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-label">25–34 years</span>
-            <div class="bar-track"><div class="bar-fill" style="width:29.5%"></div></div>
-            <span class="bar-pct">29.5%</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-label">45–54 years</span>
-            <div class="bar-track"><div class="bar-fill" style="width:17.5%"></div></div>
-            <span class="bar-pct">17.5%</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-label">55–64 years</span>
-            <div class="bar-track"><div class="bar-fill" style="width:10.3%"></div></div>
-            <span class="bar-pct">10.3%</span>
-          </div>
-          <div class="bar-row">
-            <span class="bar-label">18–24 years</span>
-            <div class="bar-track"><div class="bar-fill" style="width:4.5%"></div></div>
-            <span class="bar-pct">4.5%</span>
-          </div>
+          <div class="bar-row"><span class="bar-label">35–44 years</span><div class="bar-track"><div class="bar-fill" style="width:30.7%"></div></div><span class="bar-pct">30.7%</span></div>
+          <div class="bar-row"><span class="bar-label">25–34 years</span><div class="bar-track"><div class="bar-fill" style="width:29.5%"></div></div><span class="bar-pct">29.5%</span></div>
+          <div class="bar-row"><span class="bar-label">45–54 years</span><div class="bar-track"><div class="bar-fill" style="width:17.5%"></div></div><span class="bar-pct">17.5%</span></div>
+          <div class="bar-row"><span class="bar-label">55–64 years</span><div class="bar-track"><div class="bar-fill" style="width:10.3%"></div></div><span class="bar-pct">10.3%</span></div>
+          <div class="bar-row"><span class="bar-label">18–24 years</span><div class="bar-track"><div class="bar-fill" style="width:4.5%"></div></div><span class="bar-pct">4.5%</span></div>
         </div>
       </div>
     </div>
@@ -878,7 +796,7 @@
     <div class="container">
       <div class="tag reveal" style="justify-content:center">Partner With Us</div>
       <h2 class="display reveal" style="margin-bottom:16px">Your brand.<br><em>The right audience.</em></h2>
-      <p class="cta-desc reveal">Get in front of the Thai-Indian community — entrepreneurs, professionals, and community leaders across Bangkok and beyond.</p>
+      <p class="cta-desc reveal">Get in front of Thailand's Thai-Indian community — entrepreneurs, professionals, and community leaders across Bangkok and beyond.</p>
       <div class="cta-btns reveal">
         <a href="tsn-talks-sponsorship.html" class="btn btn-primary">View Sponsorship Options</a>
         <a href="mailto:thaisikhnews@gmail.com" class="btn btn-outline">Get in Touch</a>
@@ -910,10 +828,8 @@
   </footer>
 
   <script>
-    // Nav
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => nav.classList.toggle('stuck', scrollY > 60));
-    // Reveal
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
     }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
