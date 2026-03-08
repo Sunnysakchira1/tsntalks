@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TSN Talks — Partner With Us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:        #0D0706;
+      --bg2:       #150B09;
+      --bg3:       #1E1008;
+      --bg4:       #291508;
+      --saffron:   #E8621A;
+      --saffron2:  #F0852A;
+      --gold:      #C8901E;
+      --gold2:     #E0B040;
+      --cream:     #F2E4CC;
+      --cream-dim: #C4A880;
+      --muted:     #7A6050;
+      --border:    rgba(232, 98, 26, 0.12);
+      --border-hi: rgba(232, 98, 26, 0.35);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--cream); font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+    body::after {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 900; opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 256px;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 22px 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(13,7,6,0.94); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--cream); text-decoration: none; }
+    .nav-brand em { font-style: italic; color: var(--gold2); }
+    .nav-back { font-size: 13px; font-weight: 500; color: var(--cream-dim); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: var(--saffron2); }
+    .nav-btn { background: var(--saffron); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; padding: 10px 22px; border-radius: 2px; }
+
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 64px; }
+    section { padding: 90px 0; }
+
+    .tag { display: inline-flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--saffron); margin-bottom: 18px; }
+    .tag::before { content: ''; width: 28px; height: 1px; background: var(--saffron); }
+    h2.display { font-family: 'Playfair Display', serif; font-size: clamp(36px, 4.5vw, 60px); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; color: var(--cream); }
+    h2.display em { font-style: italic; color: var(--gold2); }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.on { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
+
+    /* ── OPTIONS ── */
+    .options-section { padding-top: 120px; background: var(--bg2); border-top: 1px solid var(--border); }
+    .option-block {
+      display: grid; grid-template-columns: 1fr 2fr; gap: 60px;
+      align-items: start; padding: 52px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .option-block:last-child { border-bottom: none; }
+    .opt-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 96px; font-weight: 900; line-height: 1;
+      color: rgba(232,98,26,0.12);
+    }
+    .opt-badge { display: inline-block; background: var(--saffron); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 4px 10px; margin-bottom: 14px; }
+    .opt-title { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--cream); margin-bottom: 12px; line-height: 1.2; }
+    .opt-desc { font-size: 15px; font-weight: 300; color: var(--cream-dim); line-height: 1.8; margin-bottom: 24px; }
+    .opt-features { list-style: none; margin-bottom: 28px; }
+    .opt-features li { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; font-weight: 300; color: var(--cream-dim); margin-bottom: 10px; line-height: 1.5; }
+    .opt-features li::before { content: '→'; color: var(--saffron); font-size: 12px; flex-shrink: 0; margin-top: 2px; }
+    .opt-pricing { display: flex; align-items: baseline; gap: 10px; }
+    .opt-from { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .opt-price { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 700; color: var(--gold2); }
+    .opt-per { font-size: 14px; color: var(--muted); }
+
+    /* ── BUNDLES ── */
+    .bundles-section { background: var(--bg); border-top: 1px solid var(--border); }
+    .bundles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 52px; }
+    .bundle-card { background: var(--bg3); padding: 40px 32px; position: relative; overflow: hidden; transition: background 0.3s, transform 0.3s; }
+    .bundle-card:hover { background: var(--bg4); transform: translateY(-4px); }
+    .bundle-card.popular { background: rgba(232,98,26,0.07); border: 1px solid var(--border-hi); }
+    .bundle-popular { position: absolute; top: 18px; right: 18px; background: var(--saffron); color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 10px; }
+    .bundle-tier { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--saffron); margin-bottom: 10px; }
+    .bundle-name { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--cream); margin-bottom: 4px; line-height: 1.15; }
+    .bundle-duration { font-size: 12px; color: var(--muted); margin-bottom: 24px; }
+    .bundle-features { list-style: none; margin-bottom: 28px; }
+    .bundle-features li { display: flex; gap: 10px; font-size: 13px; font-weight: 300; color: var(--cream-dim); margin-bottom: 9px; line-height: 1.5; }
+    .bundle-features li::before { content: '✓'; color: var(--saffron); font-size: 11px; flex-shrink: 0; font-weight: 700; margin-top: 1px; }
+    .bundle-price-block { padding-top: 20px; border-top: 1px solid var(--border); }
+    .bundle-was { font-size: 12px; color: var(--muted); text-decoration: line-through; margin-bottom: 4px; }
+    .bundle-now { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 700; color: var(--saffron); line-height: 1; margin-bottom: 10px; }
+    .bundle-reach { display: inline-flex; align-items: center; gap: 6px; background: rgba(232,98,26,0.1); border: 1px solid var(--border-hi); padding: 5px 12px; border-radius: 100px; font-size: 11px; font-weight: 600; color: var(--saffron2); }
+
+    footer { padding: 36px 64px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--cream-dim); }
+    .footer-brand em { font-style: italic; color: var(--gold2); }
+    .footer-note { font-size: 12px; color: var(--muted); }
+
+    @media (max-width: 1024px) {
+      nav { padding: 20px 32px; }
+      .container { padding: 0 32px; }
+      .option-block { grid-template-columns: 1fr; gap: 24px; }
+      .opt-num { font-size: 64px; }
+      .bundles-grid { grid-template-columns: 1fr; }
+      .bundle-card[style*="span 2"] { grid-column: span 1 !important; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .container { padding: 0 20px; }
+      section { padding: 64px 0; }
+      .options-section { padding-top: 96px; }
+      .opt-num { font-size: 48px; }
+      .opt-title { font-size: 22px; }
+      .opt-price { font-size: 30px; }
+      /* Option 5 inner 2-col */
+      .option-block .opt-body > div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+      .bundle-card { padding: 28px 24px; }
+      /* Bundle C inner 2-col */
+      .bundle-card > div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+      .bundle-now { font-size: 32px !important; }
+      footer { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">TSN <em>Talks</em></a>
+    <a href="index.html" class="nav-back">← Back to Profile</a>
+    <a href="mailto:thaisikhnews@gmail.com" class="nav-btn">Get in Touch</a>
+  </nav>
+
+  <!-- SPONSORSHIP OPTIONS -->
+  <section class="options-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="tag">Sponsorship Options</div>
+        <h2 class="display">Five ways<br><em>to partner.</em></h2>
+      </div>
+
+      <div class="option-block reveal">
+        <div class="opt-num">01</div>
+        <div class="opt-body">
+          <div class="opt-badge">Maximum Visibility</div>
+          <div class="opt-title">"Brought to You By" + On-Screen Branding</div>
+          <p class="opt-desc">Full episode ownership. Your logo on-screen throughout, lower-third banners at key moments, and a branded end card. The premium tier for brands that want to own the conversation.</p>
+          <ul class="opt-features">
+            <li>Logo displayed on-screen throughout the full episode</li>
+            <li>Lower-third banners at key discussion moments</li>
+            <li>3–5 second branded end card on every episode</li>
+            <li>Logo in thumbnail and video description</li>
+          </ul>
+          <div class="opt-pricing">
+            <span class="opt-from">From</span>
+            <span class="opt-price">฿25,000</span>
+            <span class="opt-per">/ episode</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-block reveal">
+        <div class="opt-num">02</div>
+        <div class="opt-body">
+          <div class="opt-title">Content Integration & Product Placement</div>
+          <p class="opt-desc">Natural product placement within the studio setup. We can dedicate segments to your product, run tastings, or include branded guest gifting — all acknowledged on-air in a way that feels authentic, not forced.</p>
+          <ul class="opt-features">
+            <li>On-set product or logo placement seen by every viewer</li>
+            <li>Dedicated branded experience segments</li>
+            <li>Guest gifting acknowledged on-air</li>
+          </ul>
+          <div class="opt-pricing">
+            <span class="opt-from">From</span>
+            <span class="opt-price">฿20,000</span>
+            <span class="opt-per">/ episode</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-block reveal">
+        <div class="opt-num">03</div>
+        <div class="opt-body">
+          <div class="opt-title">"Brought to You By" — Verbal Mentions</div>
+          <p class="opt-desc">Entry-level sponsorship with strong impact. Pre-roll, mid-roll, and post-roll host-read mentions, plus logo in thumbnail and description. Great for brands testing the waters.</p>
+          <ul class="opt-features">
+            <li>Pre-roll: "This episode is brought to you by..."</li>
+            <li>Mid-roll: 60-second host-read ad</li>
+            <li>Post-roll: Closing thanks and mention</li>
+            <li>Logo in thumbnail and video description</li>
+          </ul>
+          <div class="opt-pricing">
+            <span class="opt-from">From</span>
+            <span class="opt-price">฿15,000</span>
+            <span class="opt-per">/ episode</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-block reveal">
+        <div class="opt-num">04</div>
+        <div class="opt-body">
+          <div class="opt-badge" style="background: var(--gold);">Recurring Presence</div>
+          <div class="opt-title">Signature Segment Sponsorship ★</div>
+          <p class="opt-desc">A recurring, branded segment named after your brand — asked to every guest, every episode. The host introduces it with your name and logo on screen. Consistency builds recall. Min. 1-month commitment.</p>
+          <ul class="opt-features">
+            <li>"The [Brand] Segment" — your name on every episode</li>
+            <li>3 signature quick-fire questions per guest</li>
+            <li>Logo overlay during the segment</li>
+            <li>All clips tagged and collaborated for social media</li>
+          </ul>
+          <div class="opt-pricing">
+            <span class="opt-from">From</span>
+            <span class="opt-price">฿70,000</span>
+            <span class="opt-per">/ month (4 eps)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="option-block reveal">
+        <div class="opt-num">05</div>
+        <div class="opt-body">
+          <div class="opt-badge" style="background: var(--gold);">Thought Leadership</div>
+          <div class="opt-title">Guest Feature Episode</div>
+          <p class="opt-desc">Your business leader interviewed as the guest — a dedicated episode that becomes a high-value, reusable content asset for your own marketing. Option for a live episode recorded at your venue.</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 0;">
+            <div style="background: var(--bg4); padding: 28px 24px; border: 1px solid var(--border);">
+              <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px;">Basic</div>
+              <div class="opt-price" style="font-size: 28px; margin-bottom: 12px;">฿20,000</div>
+              <ul class="opt-features" style="margin-bottom: 0;">
+                <li>30-minute interview</li>
+                <li>Standard editing</li>
+                <li>All platforms</li>
+                <li>2 social clips</li>
+              </ul>
+            </div>
+            <div style="background: rgba(232,98,26,0.08); padding: 28px 24px; border: 1px solid var(--border-hi);">
+              <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--saffron); margin-bottom: 12px;">Standard ★</div>
+              <div class="opt-price" style="font-size: 28px; color: var(--saffron); margin-bottom: 12px;">฿45,000</div>
+              <ul class="opt-features" style="margin-bottom: 0;">
+                <li>45-min + B-roll editing</li>
+                <li>All platforms + thumbnail</li>
+                <li>5 social clips (TikTok, Reels)</li>
+                <li>1080p video files to sponsor</li>
+                <li>Option: Live episode at venue</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUNDLES -->
+  <section class="bundles-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="tag">Bundle Packages</div>
+        <h2 class="display">Best value<br><em>packages.</em></h2>
+        <p style="font-size: 16px; font-weight: 300; color: var(--cream-dim); max-width: 520px; margin-top: 14px; line-height: 1.7;">Combine TSN Talks sponsorship with Thai Sikh News advertising for guaranteed reach milestones.</p>
+      </div>
+      <div class="bundles-grid">
+        <div class="bundle-card reveal">
+          <div class="bundle-tier">Starter</div>
+          <div class="bundle-name">Brand Intro</div>
+          <div class="bundle-duration">1 Week</div>
+          <ul class="bundle-features">
+            <li>1 episode TSN Talks sponsorship</li>
+            <li>Promo banner across social media</li>
+            <li>3–5 posts on Facebook, IG, TikTok</li>
+            <li>฿5,000 ad budget included</li>
+          </ul>
+          <div class="bundle-price-block">
+            <div class="bundle-was">Regular: ฿40,000</div>
+            <div class="bundle-now">฿29,000</div>
+            <div class="bundle-reach">📊 100,000 Guaranteed Reach</div>
+          </div>
+        </div>
+        <div class="bundle-card reveal d1">
+          <div class="bundle-tier">Growth</div>
+          <div class="bundle-name">Visibility Boost</div>
+          <div class="bundle-duration">2 Weeks</div>
+          <ul class="bundle-features">
+            <li>2 episodes (verbal + visual branding)</li>
+            <li>Promo banner across all social media</li>
+            <li>5–7 posts on Facebook, IG, TikTok</li>
+            <li>฿7,000 ad budget included</li>
+          </ul>
+          <div class="bundle-price-block">
+            <div class="bundle-was">Regular: ฿55,000</div>
+            <div class="bundle-now">฿39,000</div>
+            <div class="bundle-reach">📊 200,000 Guaranteed Reach</div>
+          </div>
+        </div>
+        <div class="bundle-card reveal d2">
+          <div class="bundle-tier">Bundle A</div>
+          <div class="bundle-name">Brand Visibility</div>
+          <div class="bundle-duration">1 Month</div>
+          <ul class="bundle-features">
+            <li>4 x Full Episode Sponsorship + On-Screen</li>
+            <li>Promo banner across all social media</li>
+            <li>10 posts on Facebook, IG, TikTok</li>
+            <li>฿10,000 ad budget included</li>
+          </ul>
+          <div class="bundle-price-block">
+            <div class="bundle-was">Regular: ฿105,000</div>
+            <div class="bundle-now">฿69,000</div>
+            <div class="bundle-reach">📊 350,000 Guaranteed Reach</div>
+          </div>
+        </div>
+        <div class="bundle-card popular reveal">
+          <div class="bundle-popular">Most Popular</div>
+          <div class="bundle-tier">Bundle B</div>
+          <div class="bundle-name">Premium Package</div>
+          <div class="bundle-duration">1 Month</div>
+          <ul class="bundle-features">
+            <li>4 x Full Episode Sponsorship + On-Screen</li>
+            <li>1 x Guest Feature Episode for your brand</li>
+            <li>4 x Product Placement episodes</li>
+            <li>12 posts on Thai Sikh News</li>
+            <li>฿15,000 ad budget included</li>
+          </ul>
+          <div class="bundle-price-block">
+            <div class="bundle-was">Regular: ฿150,000</div>
+            <div class="bundle-now">฿109,000</div>
+            <div class="bundle-reach">📊 500,000 Guaranteed Reach</div>
+          </div>
+        </div>
+        <div class="bundle-card reveal d1" style="grid-column: span 2;">
+          <div class="bundle-tier">Bundle C · Flagship</div>
+          <div class="bundle-name">Signature Sponsor Package</div>
+          <div class="bundle-duration">2 Months</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+            <ul class="bundle-features">
+              <li>8 x Full Episode Sponsorship + On-Screen</li>
+              <li>1 x Guest Feature Episode</li>
+              <li>8 x Signature Segment (your brand name every ep.)</li>
+              <li>20+ posts on Thai Sikh News</li>
+              <li>฿25,000 ad budget included</li>
+            </ul>
+            <div class="bundle-price-block" style="border-top: none; padding-top: 0;">
+              <div class="bundle-was">Regular: ฿355,000</div>
+              <div class="bundle-now" style="font-size: 52px;">฿185,000</div>
+              <div style="font-size: 13px; color: var(--gold2); font-weight: 600; margin-bottom: 12px;">You save ฿170,000</div>
+              <div class="bundle-reach">📊 1,000,000 Guaranteed Reach</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-brand">TSN <em>Talks</em> · Sponsorship 2025</div>
+    <div class="footer-note">Presented by Thai Sikh News · Thailand 🇹🇭🇮🇳</div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
